@@ -9,7 +9,7 @@ interface ICardsEpidoseProps {
 export const CardsEpisode: FC<ICardsEpidoseProps> = ({ elem }) => {
   return (
     <Col xs={6} md={4} lg={3} key={elem.id} className="mb-3">
-      <Card className="w-100">
+      <Card className="w-100 h-100">
         <Card.Body>
           <Card.Title>
             {" "}

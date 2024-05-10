@@ -29,7 +29,7 @@ export const NavbarLayout: FC = () => {
             </Nav.Link>
             <Nav.Link
               as={Link}
-              to={ERoutes.RYCKANDMORTY_VIEWS}
+              to={ERoutes.SIMPSON_VIEWS}
               className="col-auto link-the-simpson"
             >
               LOS SIMPSON

@@ -1,13 +1,13 @@
 import axios from "axios";
 import { ChangeEvent, useContext, useEffect, useMemo, useState } from "react";
+import { FrikiWorldContext } from "../../../../../../../context/FrikiWorldContext";
 import { ERickMortyRoutes } from "../../../../../enums/Rick-Morty-routes";
 import { ICharacterDTO } from "../../../../../models";
 import { ICharacter } from "../../../../../models/ICharacterDTO";
-import { RickMortyContext } from "../../../../../context/RickMortyContext";
 
 export const useCharacterData = () => {
   const [dataCharacter, setDataCharacter] = useState<ICharacter[]>();
-  const { setLoadingCharacter } = useContext(RickMortyContext);
+  const { setLoadingView } = useContext(FrikiWorldContext);
 
   const arrayPromesasData = useMemo(() => {
     const array = Array.from({ length: 42 }, (_, i) => i + 1);
@@ -18,13 +18,13 @@ export const useCharacterData = () => {
   }, []);
 
   const getAllDatas = () => {
-    setLoadingCharacter(true);
+    setLoadingView(true);
     Promise.all(arrayPromesasData)
       .then((res) => {
         const getDataFromApi = res.flatMap((element) => element.data.results);
         setDataCharacter(getDataFromApi);
       })
-      .finally(() => setLoadingCharacter(false));
+      .finally(() => setLoadingView(false));
   };
 
   useEffect(() => getAllDatas(), [arrayPromesasData]);

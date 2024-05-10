@@ -1,2 +1,2 @@
 export { InputSearch } from "./InputSearch/InputSearch";
-export { SpinnerCharacter } from "./SpinnerCharacter/SpinnerCharacter";
+export { SpinnerCharacter } from "../../../../../components/SpinnerCharacter/SpinnerCharacter";

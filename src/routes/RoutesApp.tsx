@@ -5,6 +5,7 @@ import { FooterApp, NavbarLayout } from "../layout";
 import { ERoutes } from "../models/enums/Common-routes";
 import { HomeView, RickMortyContainer } from "../views";
 import { RickMortyLanding } from "../views/rickAndMorty/views/landing/RickMortyLanding";
+import { SimpsonContainer } from "../views/losSimpson/SimpsonContainer";
 
 export const RoutesApp: FC = () => {
   return (
@@ -23,6 +24,7 @@ export const RoutesApp: FC = () => {
             path={ERoutes.RYCKANDMORTY_VIEWS}
             element={<RickMortyContainer />}
           />
+          <Route path={ERoutes.SIMPSON_VIEWS} element={<SimpsonContainer />} />
         </Routes>
       </main>
       <footer>
