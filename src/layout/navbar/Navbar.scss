@@ -1,0 +1,45 @@
+@font-face {
+  font-family: "Rick and Morty";
+  src: url("/fonts/rick_morty_font.ttf") format("truetype");
+}
+
+.link-rick-morty {
+  font-family: "Rick and Morty", sans-serif;
+  color: #00aac2 !important;
+  // text-shadow: 2px 2px 4px #97ce4c;
+  -webkit-text-stroke: 0.01rem #97ce4c;
+}
+
+@font-face {
+  font-family: "The simpson";
+  src: url("/fonts/simpson_font.ttf") format("truetype");
+}
+
+.link-the-simpson {
+  font-family: "The simpson", sans-serif;
+  color: #ffde00 !important;
+  -webkit-text-stroke: 0.01rem black;
+}
+
+@font-face {
+  font-family: "Star Wars";
+  src: url("/fonts/star_wars_font.ttf") format("truetype");
+}
+
+.link-star-wars {
+  font-family: "Star Wars", sans-serif;
+  color: black !important;
+  -webkit-text-stroke: 0.05rem #ffe919;
+}
+
+@font-face {
+  font-family: "Pokemon";
+  src: url("/fonts/pokemon_font.ttf") format("truetype");
+}
+
+.link-pokemon-font {
+  font-family: "Pokemon", sans-serif;
+  color: #f6c40c !important;
+  -webkit-text-stroke: 0.05rem #2a63c5;
+  line-height: 1rem;
+}

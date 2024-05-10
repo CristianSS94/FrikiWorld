@@ -1,0 +1,17 @@
+.contenedor-principal-footerApp {
+  background-color: #2b3035;
+  height: 3.5rem;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+  p {
+    margin: 0;
+    a {
+      text-decoration: none;
+      color: #9b9d9e;
+    }
+  }
+}
