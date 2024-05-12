@@ -2,9 +2,10 @@ import { FC, useContext } from "react";
 import { Row } from "react-bootstrap";
 
 import { RickMortyContext } from "../../../context/RickMortyContext";
-import { InputSearch, SpinnerCharacter } from "../components";
+import { InputSearch } from "../components";
 import { CardsLocation } from "./components/cardsLocation/CardsLocation";
 import { useLocationData } from "./hooks/useLocationData";
+import { SpinnerCharacter } from "../../../../../components/SpinnerCharacter/SpinnerCharacter";
 
 export const LocationView: FC = () => {
   const { loadingCharacter } = useContext(RickMortyContext);
@@ -14,12 +15,12 @@ export const LocationView: FC = () => {
   return (
     <>
       {loadingCharacter ? (
-        <Row>
+        <Row className="row-spinner-rickmorty">
           <SpinnerCharacter />
         </Row>
       ) : (
         <>
-          <Row>
+          <Row className="row-input-rickmorty">
             <InputSearch
               onChange={onChange}
               searchValue={searchValue}

@@ -44,3 +44,17 @@
   border-radius: 5px; /* Radio de borde del thumb */
   background-color: #97ce4c;
 }
+
+.row-spinner-rickmorty {
+  height: calc(100vh - 10.125rem);
+}
+
+.row-input-rickmorty {
+  div {
+    input:focus {
+      border-color: #97ce4c !important;
+      background-color: #00aac2;
+      box-shadow: 0 0 0 0.1rem#97ce4c;
+    }
+  }
+}

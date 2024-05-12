@@ -1,5 +1,5 @@
 import { ChangeEvent, FC } from "react";
-import { Col } from "react-bootstrap";
+import { Col, Form } from "react-bootstrap";
 
 interface IInputSearchProps {
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
@@ -13,12 +13,20 @@ export const InputSearch: FC<IInputSearchProps> = ({
   placeHolder,
 }) => {
   return (
-    <Col xs={12} className="mb-3 pt-3 buscador-views-rickmorty">
-      <input
+    <Col xs={6} className="mb-3 pt-3">
+      {/* <input
         type="text"
         placeholder={`Buscar ${placeHolder}`}
         onChange={onChange}
         value={searchValue}
+      /> */}
+      <Form.Control
+        type="text"
+        id="inputPassword5"
+        aria-describedby="passwordHelpBlock"
+        onChange={onChange}
+        value={searchValue}
+        placeholder={`Buscar ${placeHolder}`}
       />
     </Col>
   );

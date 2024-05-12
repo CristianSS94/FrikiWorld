@@ -2,9 +2,10 @@ import { FC, useContext } from "react";
 import { Row } from "react-bootstrap";
 import { RickMortyContext } from "../../../context/RickMortyContext";
 
+import { InputSearch } from "../components";
 import { CardsEpisode } from "./components/cardsEpidode/CardsEpisode";
 import { useEpidodeData } from "./hooks/useEpisodeData";
-import { InputSearch, SpinnerCharacter } from "../components";
+import { SpinnerCharacter } from "../../../../../components/SpinnerCharacter/SpinnerCharacter";
 
 export const EpisodeView: FC = () => {
   const { loadingCharacter } = useContext(RickMortyContext);
@@ -14,12 +15,12 @@ export const EpisodeView: FC = () => {
   return (
     <>
       {loadingCharacter ? (
-        <Row>
+        <Row className="row-spinner-rickmorty">
           <SpinnerCharacter />
         </Row>
       ) : (
         <>
-          <Row>
+          <Row className="row-input-rickmorty">
             <InputSearch
               onChange={onChange}
               searchValue={searchValue}

@@ -4,7 +4,6 @@ import { Row } from "react-bootstrap";
 import { SpinnerCharacter } from "../../../../../components/SpinnerCharacter/SpinnerCharacter";
 import { FrikiWorldContext } from "../../../../../context/FrikiWorldContext";
 import { InputSearch } from "../components/InputSearch/InputSearch";
-import "./CharacterView.scss";
 import { CardsCharacter } from "./components/cardsCharacter/CardsCharacter";
 import { useCharacterData } from "./hooks/useCharacterData/useCharacterData";
 
@@ -21,7 +20,7 @@ export const CharacterView: FC = () => {
         </Row>
       ) : (
         <>
-          <Row>
+          <Row className="row-input-rickmorty">
             <InputSearch
               onChange={onChange}
               searchValue={searchValue}
