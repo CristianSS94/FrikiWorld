@@ -43,6 +43,29 @@ export const useCharacterData = () => {
     );
   }, [searchValue, dataCharacter]);
 
+  console.log(dataCharacter);
+
+  // Logica para sacar posibilidades en los filtrados:
+  const getStatusNames = () => {
+    if (dataCharacter) {
+      const statusNames: any = [];
+
+      for (let i = 0; i < dataCharacter.length; i++) {
+        const status = dataCharacter[i].type;
+
+        if (!statusNames.includes(status)) {
+          statusNames.push(status);
+        }
+      }
+
+      return statusNames;
+    } else {
+      return [];
+    }
+  };
+
+  console.log(getStatusNames());
+
   return {
     dataCharacter,
     onChange,
