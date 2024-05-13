@@ -1,12 +1,17 @@
+@import "../../themes/variablesAltura/variablesAltura.scss";
+
+@import "../../themes/variablesColores/variablesColores.scss";
+
 .contenedor-principal-footerApp {
-  background-color: #2b3035;
-  height: 3.5rem;
+  background-color: $colorPrimary;
+  height: $heightFooter;
   color: white;
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
   z-index: 2;
+
   p {
     margin: 0;
     a {

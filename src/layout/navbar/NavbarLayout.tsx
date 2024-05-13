@@ -11,7 +11,7 @@ export const NavbarLayout: FC = () => {
       bg="dark"
       data-bs-theme="dark"
       expand="lg"
-      className="bg-body-tertiary"
+      className="bg-body-tertiary contenedor-principal-nabvar"
     >
       <Container fluid>
         <Navbar.Brand as={Link} to={ERoutes.HOME}>

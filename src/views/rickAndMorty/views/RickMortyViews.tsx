@@ -2,6 +2,7 @@ import { FC, ReactElement } from "react";
 import { Container, Tab, Tabs } from "react-bootstrap";
 
 import { CharacterView, EpisodeView, LocationView } from "./tabs";
+import "./RickMortyView.scss";
 
 type TKeyConfigTab = "0" | "1" | "2";
 

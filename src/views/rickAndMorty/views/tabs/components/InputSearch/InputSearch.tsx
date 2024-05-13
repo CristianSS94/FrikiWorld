@@ -14,12 +14,6 @@ export const InputSearch: FC<IInputSearchProps> = ({
 }) => {
   return (
     <Col xs={6} className="mb-3 pt-3">
-      {/* <input
-        type="text"
-        placeholder={`Buscar ${placeHolder}`}
-        onChange={onChange}
-        value={searchValue}
-      /> */}
       <Form.Control
         type="text"
         id="inputPassword5"

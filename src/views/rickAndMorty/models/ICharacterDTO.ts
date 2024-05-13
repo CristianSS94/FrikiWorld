@@ -29,3 +29,4 @@ export interface ICharacterDTO {
   info: IInfo;
   results: ICharacter[];
 }
+

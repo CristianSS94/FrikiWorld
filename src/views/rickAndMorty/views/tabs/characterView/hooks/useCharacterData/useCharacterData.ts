@@ -29,12 +29,13 @@ export const useCharacterData = () => {
 
   useEffect(() => getAllDatas(), [arrayPromesasData]);
 
-  //--------------------------------------------------------------
-
+  // Lógica del input text de buscar un personaje
   const [searchValue, setSearchValue] = useState<string>("");
 
   const onChange = (e: ChangeEvent<HTMLInputElement>) =>
     setSearchValue(e.target.value);
+
+  // Lógica del select de filtrar por genero
 
   const dataFiltered: ICharacter[] | undefined = useMemo(() => {
     if (!searchValue) return dataCharacter;
@@ -45,26 +46,44 @@ export const useCharacterData = () => {
 
   console.log(dataCharacter);
 
-  // Logica para sacar posibilidades en los filtrados:
-  const getStatusNames = () => {
-    if (dataCharacter) {
-      const statusNames: any = [];
+  // const selectGenderChange = (e: ChangeEvent<HTMLInputElement>) => {};
 
-      for (let i = 0; i < dataCharacter.length; i++) {
-        const status = dataCharacter[i].type;
+  // Logica para sacar posibilidades en los filtrados de estatus:
+  // const getStatusNames = () => {
+  //   if (dataCharacter) {
+  //     const statusNames: string[] = [];
 
-        if (!statusNames.includes(status)) {
-          statusNames.push(status);
-        }
-      }
+  //     for (let i = 0; i < dataCharacter.length; i++) {
+  //       const status = dataCharacter[i].status;
 
-      return statusNames;
-    } else {
-      return [];
-    }
-  };
+  //       if (!statusNames.includes(status)) {
+  //         statusNames.push(status);
+  //       }
+  //     }
 
-  console.log(getStatusNames());
+  //     return statusNames;
+  //   } else {
+  //     return [];
+  //   }
+  // };
+
+  // const getGenderNames = () => {
+  //   if (dataCharacter) {
+  //     const genderNames: string[] = [];
+
+  //     for (let i = 0; i < dataCharacter.length; i++) {
+  //       const status = dataCharacter[i].gender;
+
+  //       if (!genderNames.includes(status)) {
+  //         genderNames.push(status);
+  //       }
+  //     }
+
+  //     return genderNames;
+  //   } else {
+  //     return [];
+  //   }
+  // };
 
   return {
     dataCharacter,

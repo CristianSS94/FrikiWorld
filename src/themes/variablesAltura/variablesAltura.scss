@@ -1,0 +1,5 @@
+$heightFooter: 3.5rem; //Altura fija del footer
+$heightHeader: 3.5rem; // Altura fija del header/navbar
+$heightMain: calc(
+  100vh - ($heightFooter + $heightHeader)
+); //Altura fija del Main

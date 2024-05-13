@@ -5,6 +5,7 @@ import { SpinnerCharacter } from "../../../../../components/SpinnerCharacter/Spi
 import { FrikiWorldContext } from "../../../../../context/FrikiWorldContext";
 import { InputSearch } from "../components/InputSearch/InputSearch";
 import { CardsCharacter } from "./components/cardsCharacter/CardsCharacter";
+import { SelectFilter } from "../components/selectFilter/SelectFilter";
 import { useCharacterData } from "./hooks/useCharacterData/useCharacterData";
 
 export const CharacterView: FC = () => {
@@ -20,12 +21,13 @@ export const CharacterView: FC = () => {
         </Row>
       ) : (
         <>
-          <Row className="row-input-rickmorty">
+          <Row className="row-inputs-rickmorty">
             <InputSearch
               onChange={onChange}
               searchValue={searchValue}
               placeHolder={placeHolder}
             />
+            <SelectFilter />
           </Row>
           <Row className="card-scroll-views">
             {dataFiltered?.map((elem) => (

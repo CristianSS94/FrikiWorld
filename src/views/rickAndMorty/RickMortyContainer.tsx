@@ -1,6 +1,5 @@
 import { FC } from "react";
 
-import "./RickMortyView.scss";
 import { RickMortyProvider } from "./context/RickMortyContext";
 import { RickMortyViews } from "./views/RickMortyViews";
 

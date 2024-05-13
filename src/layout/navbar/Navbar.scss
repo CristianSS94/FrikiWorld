@@ -1,3 +1,9 @@
+@import "../../themes/variablesAltura/variablesAltura.scss";
+
+.contenedor-principal-nabvar {
+  height: $heightHeader;
+}
+
 @font-face {
   font-family: "Rick and Morty";
   src: url("/fonts/rick_morty_font.ttf") format("truetype");
