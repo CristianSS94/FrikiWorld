@@ -37,58 +37,53 @@ export const useCharacterData = () => {
 
   // Lógica del select de filtrar por genero
 
+  const [filterGender, setFilterGender] = useState<string>("todos");
+  const onGenderChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setFilterGender(e.target.value);
+  };
+
+  // Lógica del select de filtrar por status
+
+  const [filterStatus, setFilterStatus] = useState<string>("todos");
+  const onStatusChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setFilterStatus(e.target.value);
+  };
+
+  // const dataFiltered: ICharacter[] | undefined = useMemo(() => {
+  //   if (!searchValue) return dataCharacter;
+  //   return dataCharacter?.filter((e) =>
+  //     e.name.toLowerCase().includes(searchValue.toLowerCase())
+  //   );
+  // }, [searchValue, dataCharacter]);
+
+  // type TGender = "todos" | "Female" | "Male" | "unknown" | "Genderless";
+
   const dataFiltered: ICharacter[] | undefined = useMemo(() => {
-    if (!searchValue) return dataCharacter;
-    return dataCharacter?.filter((e) =>
-      e.name.toLowerCase().includes(searchValue.toLowerCase())
-    );
+    if (filterGender === "todos" && filterStatus === "todos" && !searchValue)
+      return dataCharacter;
+    else if (
+      searchValue ||
+      filterGender !== "todos" ||
+      filterStatus !== "todos"
+    )
+      return dataCharacter?.filter(
+        (e) =>
+          e.name.toLowerCase().includes(searchValue.toLowerCase()) &&
+          e.gender.includes(filterGender) &&
+          e.status.includes(filterStatus)
+      );
   }, [searchValue, dataCharacter]);
 
-  console.log(dataCharacter);
-
   // const selectGenderChange = (e: ChangeEvent<HTMLInputElement>) => {};
-
-  // Logica para sacar posibilidades en los filtrados de estatus:
-  // const getStatusNames = () => {
-  //   if (dataCharacter) {
-  //     const statusNames: string[] = [];
-
-  //     for (let i = 0; i < dataCharacter.length; i++) {
-  //       const status = dataCharacter[i].status;
-
-  //       if (!statusNames.includes(status)) {
-  //         statusNames.push(status);
-  //       }
-  //     }
-
-  //     return statusNames;
-  //   } else {
-  //     return [];
-  //   }
-  // };
-
-  // const getGenderNames = () => {
-  //   if (dataCharacter) {
-  //     const genderNames: string[] = [];
-
-  //     for (let i = 0; i < dataCharacter.length; i++) {
-  //       const status = dataCharacter[i].gender;
-
-  //       if (!genderNames.includes(status)) {
-  //         genderNames.push(status);
-  //       }
-  //     }
-
-  //     return genderNames;
-  //   } else {
-  //     return [];
-  //   }
-  // };
 
   return {
     dataCharacter,
     onChange,
     dataFiltered,
     searchValue,
+    onGenderChange,
+    onStatusChange,
+    filterGender,
+    filterStatus,
   };
 };

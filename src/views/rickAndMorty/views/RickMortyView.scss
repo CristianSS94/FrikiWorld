@@ -25,10 +25,10 @@
 }
 
 .card-scroll-views {
-  overflow-y: scroll;
+  overflow-y: auto;
   z-index: 1;
   position: relative;
-  height: calc(100vh - 14.5rem);
+  height: calc(100vh - 15rem);
   scroll-behavior: smooth;
 }
 

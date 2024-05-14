@@ -10,7 +10,13 @@ import { useCharacterData } from "./hooks/useCharacterData/useCharacterData";
 
 export const CharacterView: FC = () => {
   const { loadingView } = useContext(FrikiWorldContext);
-  const { onChange, dataFiltered, searchValue } = useCharacterData();
+  const {
+    onChange,
+    dataFiltered,
+    searchValue,
+    onGenderChange,
+    onStatusChange,
+  } = useCharacterData();
   const placeHolder = "personaje";
 
   return (
@@ -27,7 +33,10 @@ export const CharacterView: FC = () => {
               searchValue={searchValue}
               placeHolder={placeHolder}
             />
-            <SelectFilter />
+            <SelectFilter
+              onStatusChange={onStatusChange}
+              onGenderChange={onGenderChange}
+            />
           </Row>
           <Row className="card-scroll-views">
             {dataFiltered?.map((elem) => (

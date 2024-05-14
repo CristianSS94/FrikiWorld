@@ -7,7 +7,6 @@ export const RickMortyContainer: FC = () => {
   return (
     <RickMortyProvider>
       <RickMortyViews />
-      {/* <RickMortyLanding /> */}
     </RickMortyProvider>
   );
 };
