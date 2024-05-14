@@ -31,7 +31,9 @@ export const HomeView: FC = () => {
                   src={apisData[elem].apiImage}
                 />
                 <Card.Body>
-                  <Card.Title>{apisData[elem].apiName}</Card.Title>
+                  <Card.Title>
+                    {apisData[elem].apiName.toUpperCase()}
+                  </Card.Title>
                   <Button
                     onClick={() => navigate(apisData[elem].apiUrl)}
                     variant="dark"

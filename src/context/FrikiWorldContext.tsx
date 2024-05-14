@@ -39,7 +39,7 @@ const apisData: IConfigApis = {
       "Rick y Morty (en inglés: Rick and Morty) es una serie de televisión estadounidense de animación para adultos creada por Justin Roiland y Dan Harmon en 2013 para Adult Swim, también se emitió en Cartoon Network. La serie sigue las desventuras de un científico, Rick Sánchez, y su fácilmente influenciable nieto, Morty, quienes pasan el tiempo entre la vida doméstica y los Viajes espaciales e intergalácticos. Fuente: Wikipedia",
   },
   "3": {
-    apiName: "POKÉMON",
+    apiName: "PoKéMoN",
     apiImage: "images/pokemon.jpg",
     apiUrl: ERoutes.RYCKANDMORTY_VIEWS,
     apiClassName: "link-pokemon-font",

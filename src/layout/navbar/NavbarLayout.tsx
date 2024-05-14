@@ -27,6 +27,7 @@ export const NavbarLayout: FC = () => {
               (Object.values(apisData) as IApisPanel[]).map((elem, index) => {
                 return (
                   <Nav.Link
+                    key={index}
                     as={Link}
                     to={elem.apiUrl}
                     className={elem.apiClassName}
