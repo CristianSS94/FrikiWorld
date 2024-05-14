@@ -34,22 +34,17 @@ export const useCharacterData = () => {
   const onChange = (e: ChangeEvent<HTMLInputElement>) =>
     setSearchValue(e.target.value);
 
-  console.log(searchValue);
-
   // Lógica del select de filtrar por genero
   const [filterGender, setFilterGender] = useState<string>("");
   const onGenderChange = (e: ChangeEvent<HTMLSelectElement>) => {
     setFilterGender(e.target.value);
   };
-  console.log(filterGender);
 
   // Lógica del select de filtrar por status
   const [filterStatus, setFilterStatus] = useState<string>("");
   const onStatusChange = (e: ChangeEvent<HTMLSelectElement>) => {
     setFilterStatus(e.target.value);
   };
-
-  console.log(filterStatus);
 
   const dataFiltered: ICharacter[] | undefined = useMemo(() => {
     // No hay ningun input marcado
@@ -87,9 +82,6 @@ export const useCharacterData = () => {
         .filter((e) => e.status.includes(filterStatus))
         .filter((e) => e.gender.includes(filterGender));
   }, [searchValue, dataCharacter, filterGender, filterStatus]);
-
-  console.log(dataFiltered);
-  console.log(dataCharacter);
 
   return {
     dataCharacter,

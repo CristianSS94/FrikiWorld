@@ -1,12 +1,11 @@
 import { FC, useContext } from "react";
 import { Col, Row } from "react-bootstrap";
 
-import { SpinnerCharacter } from "../../../../../components/SpinnerCharacter/SpinnerCharacter";
 import { FrikiWorldContext } from "../../../../../context/FrikiWorldContext";
 import { InputSearch } from "../components/InputSearch/InputSearch";
-import { CardsCharacter } from "./components/cardsCharacter/CardsCharacter";
-import { SelectFilter } from "./components/selectFilter/SelectFilter";
 import { useCharacterData } from "./hooks/useCharacterData/useCharacterData";
+import { CardsCharacter, SelectFilter } from "./components";
+import { SpinnerComponent } from "../../../../../components/SpinnerComponent/SpinnerComponent";
 
 export const CharacterView: FC = () => {
   const { loadingView } = useContext(FrikiWorldContext);
@@ -24,7 +23,7 @@ export const CharacterView: FC = () => {
     <>
       {loadingView ? (
         <Row className="row-spinner-rickmorty">
-          <SpinnerCharacter />
+          <SpinnerComponent />
         </Row>
       ) : (
         <>

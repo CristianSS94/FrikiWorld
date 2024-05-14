@@ -4,8 +4,8 @@ import { Card, Col, Row } from "react-bootstrap";
 import { IEpisodeSimpson } from "../../models/IEpisodeSimpson";
 import { useEpisodeSimpson } from "./hooks/useEpisodeSimpson";
 import { FrikiWorldContext } from "../../../../context/FrikiWorldContext";
-import { SpinnerCharacter } from "../../../../components/SpinnerCharacter/SpinnerCharacter";
 import "./EpisodesSimpson.scss";
+import { SpinnerComponent } from "../../../../components/SpinnerComponent/SpinnerComponent";
 
 export const EpisodesSimpson: FC = () => {
   const { simpsonEpisode } = useEpisodeSimpson();
@@ -15,7 +15,7 @@ export const EpisodesSimpson: FC = () => {
     <>
       {loadingView ? (
         <Row className="row-spinner-simpson">
-          <SpinnerCharacter />
+          <SpinnerComponent />
         </Row>
       ) : (
         <Row>

@@ -1,9 +1,10 @@
 import { ChangeEvent, FC } from "react";
 import { Col, Form } from "react-bootstrap";
+
 import {
   getOptionGenderSelector,
   getOptionStatusSelector,
-} from "../../../../../enums/Selectors-Value";
+} from "../../../../../enums";
 
 interface ISelectFilterProps {
   onGenderChange: (e: ChangeEvent<HTMLSelectElement>) => void;

@@ -21,9 +21,9 @@ export const HomeView: FC = () => {
         <Col xs={12} className="text-center">
           <h2 className="mb-4">¿Que te apetece ver?</h2>
         </Col>
-        {(Object.keys(apisData) as TKeyConfigApis[]).map((elem) => {
+        {(Object.keys(apisData) as TKeyConfigApis[]).map((elem, index) => {
           return (
-            <Col xs={12} md={6} xl={3}>
+            <Col xs={12} md={6} xl={3} key={index}>
               <Card className="w-100 mb-2">
                 <Card.Img
                   className="imagen-card-home"

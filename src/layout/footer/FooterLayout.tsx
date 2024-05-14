@@ -1,9 +1,9 @@
 import { FC } from "react";
 import { Container } from "react-bootstrap";
 
-import "./FooterApp.scss";
+import "./FooterLayout.scss";
 
-export const FooterApp: FC = () => {
+export const FooterLayout: FC = () => {
   return (
     <Container fluid className="contenedor-principal-footerApp">
       <p>

@@ -1,9 +1,9 @@
 import { FC } from "react";
 import { Col, Spinner } from "react-bootstrap";
 
-import "./SpinnerCharacter.scss";
+import "./SpinnerComponent.scss";
 
-export const SpinnerCharacter: FC = () => {
+export const SpinnerComponent: FC = () => {
   return (
     <Col className="col-centrar-spinner">
       <Spinner animation="border" role="status">

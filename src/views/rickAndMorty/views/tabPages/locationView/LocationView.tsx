@@ -1,22 +1,22 @@
 import { FC, useContext } from "react";
 import { Row } from "react-bootstrap";
+
 import { RickMortyContext } from "../../../context/RickMortyContext";
-
-import { CardsEpisode } from "./components/cardsEpidode/CardsEpisode";
-import { useEpidodeData } from "./hooks/useEpisodeData";
-import { SpinnerCharacter } from "../../../../../components/SpinnerCharacter/SpinnerCharacter";
+import { CardsLocation } from "./components/cardsLocation/CardsLocation";
+import { useLocationData } from "./hooks/useLocationData";
 import { InputSearch } from "../components/InputSearch/InputSearch";
+import { SpinnerComponent } from "../../../../../components/SpinnerComponent/SpinnerComponent";
 
-export const EpisodeView: FC = () => {
+export const LocationView: FC = () => {
   const { loadingCharacter } = useContext(RickMortyContext);
-  const { onChange, searchValue, dataFiltered } = useEpidodeData();
-  const placeHolder = "epidosio";
+  const { onChange, searchValue, dataFiltered } = useLocationData();
+  const placeHolder = "ubicación";
 
   return (
     <>
       {loadingCharacter ? (
         <Row className="row-spinner-rickmorty">
-          <SpinnerCharacter />
+          <SpinnerComponent />
         </Row>
       ) : (
         <>
@@ -29,7 +29,7 @@ export const EpisodeView: FC = () => {
           </Row>
           <Row className="card-scroll-views">
             {dataFiltered?.map((elem) => (
-              <CardsEpisode elem={elem} key={elem.id} />
+              <CardsLocation elem={elem} key={elem.id} />
             ))}
           </Row>
         </>

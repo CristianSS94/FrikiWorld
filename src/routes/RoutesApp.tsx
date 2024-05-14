@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
-import { FooterApp, NavbarLayout } from "../layout";
+import { FooterLayout, NavbarLayout } from "../layout";
 import { ERoutes } from "../models/enums/Common-routes";
 import { HomeView, RickMortyContainer } from "../views";
 import { SimpsonContainer } from "../views/losSimpson/SimpsonContainer";
@@ -24,7 +24,7 @@ export const RoutesApp: FC = () => {
         </Routes>
       </main>
       <footer>
-        <FooterApp />
+        <FooterLayout />
       </footer>
     </BrowserRouter>
   );
