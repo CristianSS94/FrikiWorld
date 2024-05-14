@@ -30,7 +30,6 @@ export const RickMortyViews: FC = () => {
         {(Object.keys(configTab) as TKeyConfigTab[]).map((elem) => {
           return (
             <Tab
-              className="tab-personajes-estilos"
               key={elem}
               eventKey={configTab[elem].tabTitle}
               title={configTab[elem].tabTitle}

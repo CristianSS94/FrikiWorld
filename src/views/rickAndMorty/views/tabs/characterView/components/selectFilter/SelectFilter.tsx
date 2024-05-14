@@ -3,11 +3,11 @@ import { Col, Form } from "react-bootstrap";
 import {
   getOptionGenderSelector,
   getOptionStatusSelector,
-} from "../../../../enums/Selectors-Value";
+} from "../../../../../enums/Selectors-Value";
 
 interface ISelectFilterProps {
-  onGenderChange: (e: ChangeEvent<HTMLInputElement>) => void;
-  onStatusChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  onGenderChange: (e: ChangeEvent<HTMLSelectElement>) => void;
+  onStatusChange: (e: ChangeEvent<HTMLSelectElement>) => void;
 }
 
 export const SelectFilter: FC<ISelectFilterProps> = ({
@@ -19,11 +19,15 @@ export const SelectFilter: FC<ISelectFilterProps> = ({
       <Col xs={3} className="mb-3 pt-3">
         <Form.Select
           aria-label="Default select example"
-          onChange={() => onGenderChange}
+          onChange={onGenderChange}
         >
-          <option value="todos">Géneros</option>
+          <option value="">Géneros</option>
           {getOptionGenderSelector.map((option, index) => (
-            <option key={index} value={option.value}>
+            <option
+              key={index}
+              value={option.value}
+              className="tocameloshuevos"
+            >
               {option.label}
             </option>
           ))}
@@ -32,9 +36,9 @@ export const SelectFilter: FC<ISelectFilterProps> = ({
       <Col xs={3} className="mb-3 pt-3">
         <Form.Select
           aria-label="Default select example"
-          onChange={() => onStatusChange}
+          onChange={onStatusChange}
         >
-          <option value="todos">Estados</option>
+          <option value="">Estados</option>
           {getOptionStatusSelector.map((option, index) => (
             <option key={index} value={option.value}>
               {option.label}

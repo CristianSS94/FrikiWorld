@@ -1,11 +1,11 @@
 import { FC, useContext } from "react";
-import { Row } from "react-bootstrap";
+import { Col, Row } from "react-bootstrap";
 
 import { SpinnerCharacter } from "../../../../../components/SpinnerCharacter/SpinnerCharacter";
 import { FrikiWorldContext } from "../../../../../context/FrikiWorldContext";
 import { InputSearch } from "../components/InputSearch/InputSearch";
 import { CardsCharacter } from "./components/cardsCharacter/CardsCharacter";
-import { SelectFilter } from "../components/selectFilter/SelectFilter";
+import { SelectFilter } from "./components/selectFilter/SelectFilter";
 import { useCharacterData } from "./hooks/useCharacterData/useCharacterData";
 
 export const CharacterView: FC = () => {
@@ -17,6 +17,7 @@ export const CharacterView: FC = () => {
     onGenderChange,
     onStatusChange,
   } = useCharacterData();
+
   const placeHolder = "personaje";
 
   return (
@@ -39,9 +40,15 @@ export const CharacterView: FC = () => {
             />
           </Row>
           <Row className="card-scroll-views">
-            {dataFiltered?.map((elem) => (
-              <CardsCharacter elem={elem} key={elem.id} />
-            ))}
+            {dataFiltered && dataFiltered?.length !== 0 ? (
+              dataFiltered.map((elem) => (
+                <CardsCharacter elem={elem} key={elem.id} />
+              ))
+            ) : (
+              <Col className="vista-sin-resultados">
+                <h6>No hay resultados</h6>
+              </Col>
+            )}
           </Row>
         </>
       )}

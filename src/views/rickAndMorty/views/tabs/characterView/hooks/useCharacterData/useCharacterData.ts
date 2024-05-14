@@ -31,50 +31,65 @@ export const useCharacterData = () => {
 
   // Lógica del input text de buscar un personaje
   const [searchValue, setSearchValue] = useState<string>("");
-
   const onChange = (e: ChangeEvent<HTMLInputElement>) =>
     setSearchValue(e.target.value);
 
-  // Lógica del select de filtrar por genero
+  console.log(searchValue);
 
-  const [filterGender, setFilterGender] = useState<string>("todos");
-  const onGenderChange = (e: ChangeEvent<HTMLInputElement>) => {
+  // Lógica del select de filtrar por genero
+  const [filterGender, setFilterGender] = useState<string>("");
+  const onGenderChange = (e: ChangeEvent<HTMLSelectElement>) => {
     setFilterGender(e.target.value);
   };
+  console.log(filterGender);
 
   // Lógica del select de filtrar por status
-
-  const [filterStatus, setFilterStatus] = useState<string>("todos");
-  const onStatusChange = (e: ChangeEvent<HTMLInputElement>) => {
+  const [filterStatus, setFilterStatus] = useState<string>("");
+  const onStatusChange = (e: ChangeEvent<HTMLSelectElement>) => {
     setFilterStatus(e.target.value);
   };
 
-  // const dataFiltered: ICharacter[] | undefined = useMemo(() => {
-  //   if (!searchValue) return dataCharacter;
-  //   return dataCharacter?.filter((e) =>
-  //     e.name.toLowerCase().includes(searchValue.toLowerCase())
-  //   );
-  // }, [searchValue, dataCharacter]);
-
-  // type TGender = "todos" | "Female" | "Male" | "unknown" | "Genderless";
+  console.log(filterStatus);
 
   const dataFiltered: ICharacter[] | undefined = useMemo(() => {
-    if (filterGender === "todos" && filterStatus === "todos" && !searchValue)
-      return dataCharacter;
-    else if (
-      searchValue ||
-      filterGender !== "todos" ||
-      filterStatus !== "todos"
-    )
-      return dataCharacter?.filter(
-        (e) =>
-          e.name.toLowerCase().includes(searchValue.toLowerCase()) &&
-          e.gender.includes(filterGender) &&
-          e.status.includes(filterStatus)
+    // No hay ningun input marcado
+    if (!filterGender && !filterStatus && !searchValue) return dataCharacter;
+    // Buscador pero ningun select
+    else if (searchValue && !filterStatus && !filterGender)
+      return dataCharacter?.filter((e) =>
+        e.name.toLowerCase().includes(searchValue.toLowerCase())
       );
-  }, [searchValue, dataCharacter]);
+    //No buscador, pero si select de genero, no select de status
+    else if (!searchValue && filterGender && !filterStatus)
+      return dataCharacter?.filter((e) => e.gender.includes(filterGender));
+    //No buscador, pero si select de estado, no select de genero
+    else if (!searchValue && !filterGender && filterStatus)
+      return dataCharacter?.filter((e) => e.status.includes(filterStatus));
+    //No buscador, pero si ambos select
+    else if (!searchValue && filterGender && filterStatus)
+      return dataCharacter
+        ?.filter((e) => e.gender.includes(filterGender))
+        .filter((e) => e.status.includes(filterStatus));
+    // Buscador y select de Genero
+    else if (searchValue && filterGender && !filterStatus)
+      return dataCharacter
+        ?.filter((e) => e.name.toLowerCase().includes(searchValue))
+        .filter((e) => e.gender.includes(filterGender));
+    // Buscador y select de Status
+    else if (searchValue && !filterGender && filterStatus)
+      return dataCharacter
+        ?.filter((e) => e.name.toLowerCase().includes(searchValue))
+        .filter((e) => e.status.includes(filterStatus));
+    // Buscador y ambos select
+    else if (searchValue && !filterGender && !filterStatus)
+      return dataCharacter
+        ?.filter((e) => e.name.toLowerCase().includes(searchValue))
+        .filter((e) => e.status.includes(filterStatus))
+        .filter((e) => e.gender.includes(filterGender));
+  }, [searchValue, dataCharacter, filterGender, filterStatus]);
 
-  // const selectGenderChange = (e: ChangeEvent<HTMLInputElement>) => {};
+  console.log(dataFiltered);
+  console.log(dataCharacter);
 
   return {
     dataCharacter,

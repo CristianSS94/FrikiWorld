@@ -1,7 +1,7 @@
 @import "../../themes/variablesAltura/variablesAltura.scss";
 
 .contenedor-principal-nabvar {
-  height: $heightHeader;
+  min-height: $heightHeader;
 }
 
 @font-face {

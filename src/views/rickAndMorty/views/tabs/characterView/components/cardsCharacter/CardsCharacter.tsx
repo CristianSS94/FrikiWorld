@@ -8,8 +8,8 @@ interface ICardsCharacterProps {
 
 export const CardsCharacter: FC<ICardsCharacterProps> = ({ elem }) => {
   return (
-    <Col xs={6} md={4} lg={3} key={elem.id} className="mb-3 ">
-      <Card className="w-100 h-100">
+    <Col xs={6} md={4} lg={3} xl={2} key={elem.id} className="mb-3 ">
+      <Card className="card-personajes-rickmorty">
         <Card.Img variant="top" src={elem.image} />
         <Card.Body>
           <Card.Title>{elem.name}</Card.Title>
