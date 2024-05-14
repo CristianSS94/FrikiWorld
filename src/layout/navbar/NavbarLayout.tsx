@@ -1,11 +1,14 @@
-import { FC } from "react";
+import { FC, useContext } from "react";
 import { Container, Nav, Navbar } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 import { ERoutes } from "../../models/enums/Common-routes";
 import "./Navbar.scss";
+import { FrikiWorldContext, IApisPanel } from "../../context/FrikiWorldContext";
 
 export const NavbarLayout: FC = () => {
+  const { apisData } = useContext(FrikiWorldContext);
+
   return (
     <Navbar
       bg="dark"
@@ -20,12 +23,24 @@ export const NavbarLayout: FC = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link
+            {apisData &&
+              (Object.values(apisData) as IApisPanel[]).map((elem, index) => {
+                return (
+                  <Nav.Link
+                    as={Link}
+                    to={elem.apiUrl}
+                    className={elem.apiClassName}
+                  >
+                    {elem.apiName}
+                  </Nav.Link>
+                );
+              })}
+            {/* <Nav.Link
               as={Link}
               to={ERoutes.RYCKANDMORTY_VIEWS}
               className="col-auto link-rick-morty"
             >
-              RICK AND MORTY
+              {apisData[0].apiName}
             </Nav.Link>
             <Nav.Link
               as={Link}
@@ -47,7 +62,7 @@ export const NavbarLayout: FC = () => {
               className="col-auto link-pokemon-font"
             >
               PoKéMoN
-            </Nav.Link>
+            </Nav.Link> */}
           </Nav>
         </Navbar.Collapse>
       </Container>

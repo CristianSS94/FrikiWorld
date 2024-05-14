@@ -2,10 +2,10 @@ import { FC, useContext } from "react";
 import { Row } from "react-bootstrap";
 
 import { RickMortyContext } from "../../../context/RickMortyContext";
-import { InputSearch } from "../components";
 import { CardsLocation } from "./components/cardsLocation/CardsLocation";
 import { useLocationData } from "./hooks/useLocationData";
 import { SpinnerCharacter } from "../../../../../components/SpinnerCharacter/SpinnerCharacter";
+import { InputSearch } from "../components/InputSearch/InputSearch";
 
 export const LocationView: FC = () => {
   const { loadingCharacter } = useContext(RickMortyContext);

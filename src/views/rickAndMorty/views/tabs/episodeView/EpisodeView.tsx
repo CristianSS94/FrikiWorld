@@ -2,10 +2,10 @@ import { FC, useContext } from "react";
 import { Row } from "react-bootstrap";
 import { RickMortyContext } from "../../../context/RickMortyContext";
 
-import { InputSearch } from "../components";
 import { CardsEpisode } from "./components/cardsEpidode/CardsEpisode";
 import { useEpidodeData } from "./hooks/useEpisodeData";
 import { SpinnerCharacter } from "../../../../../components/SpinnerCharacter/SpinnerCharacter";
+import { InputSearch } from "../components/InputSearch/InputSearch";
 
 export const EpisodeView: FC = () => {
   const { loadingCharacter } = useContext(RickMortyContext);
