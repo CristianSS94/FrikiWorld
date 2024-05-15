@@ -1,8 +1,8 @@
 import { FC, useState } from "react";
-import { Button, Card, Col } from "react-bootstrap";
+import { Card, Col } from "react-bootstrap";
 import { ICharacter } from "../../../../../models/ICharacterDTO";
-import { CardFrontRM } from "./cardFront/CardFrontRM";
 import { CardBackRM } from "./cardBack/CardBackRM";
+import { CardFrontRM } from "./cardFront/CardFrontRM";
 
 interface ICardsCharacterProps {
   elem: ICharacter;

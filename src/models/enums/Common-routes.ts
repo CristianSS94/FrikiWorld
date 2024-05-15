@@ -1,6 +1,7 @@
 export enum ERoutes {
   HOME = "/",
-  RYCKANDMORTY_LANDING = "/rick-and-morty",
-  RYCKANDMORTY_VIEWS = "/rick-and-morty/views",
-  SIMPSON_VIEWS = "/simpson/views",
+  RYCKANDMORTY_VIEWS = "/rick-and-morty",
+  SIMPSON_VIEWS = "/simpson",
+  STARWARS_VIEWS = "/starwars",
+  POKEMON_VIEWS = "/pokemon",
 }
