@@ -17,7 +17,7 @@ export const SelectFilter: FC<ISelectFilterProps> = ({
 }) => {
   return (
     <>
-      <Col xs={3} className="mb-3 pt-3 form-floating">
+      <Col xs={4} lg={3} className="mb-3 pt-3 form-floating">
         <Form.Select
           id="floatingGenderSelect"
           className="form-control"
@@ -38,7 +38,7 @@ export const SelectFilter: FC<ISelectFilterProps> = ({
           Género
         </label>
       </Col>
-      <Col xs={3} className="mb-3 pt-3 form-floating">
+      <Col xs={4} lg={3} className="mb-3 pt-3 form-floating">
         <Form.Select
           id="floatingStatusSelect"
           aria-label="Default select example"

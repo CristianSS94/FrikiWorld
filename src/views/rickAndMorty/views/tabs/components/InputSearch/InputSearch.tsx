@@ -13,7 +13,7 @@ export const InputSearch: FC<IInputSearchProps> = ({
   placeHolder,
 }) => {
   return (
-    <Col xs={6} className="mb-3 pt-3 col-buscador-rickMorty">
+    <Col xs={4} lg={6} className="mb-3 pt-3 col-buscador-rickMorty">
       <Form.Control
         type="text"
         aria-describedby="passwordHelpBlock"

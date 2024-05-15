@@ -1,31 +1,28 @@
-import { FC } from "react";
-import { Card, Col } from "react-bootstrap";
+import { FC, useState } from "react";
+import { Button, Card, Col } from "react-bootstrap";
 import { ICharacter } from "../../../../../models/ICharacterDTO";
+import { CardFrontRM } from "./cardFront/CardFrontRM";
+import { CardBackRM } from "./cardBack/CardBackRM";
 
 interface ICardsCharacterProps {
   elem: ICharacter;
 }
 
 export const CardsCharacter: FC<ICardsCharacterProps> = ({ elem }) => {
+  const [showBack, setShowBack] = useState<boolean>(false);
+
+  const handleShowBack = () => {
+    setShowBack(!showBack);
+  };
+
   return (
     <Col xs={6} md={4} lg={3} xl={2} key={elem.id} className="mb-3">
       <Card className="card-personajes-rickmorty">
-        <div className="card-front">
-          <Card.Img variant="top" src={elem.image} />
-          <Card.Body>
-            <Card.Title>{elem.name}</Card.Title>
-          </Card.Body>
-        </div>
-        <div className="card-back">
-          <Card.Body>
-            <Card.Title>{elem.name}</Card.Title>
-            <hr />
-            <Card.Text>Origen: {elem.origin.name}</Card.Text>
-            <Card.Text>Especie: {elem.species}</Card.Text>
-            {/* <Card.Text>Género: {elem.gender}</Card.Text>
-            <Card.Text>Estado: {elem.status}</Card.Text> */}
-          </Card.Body>
-        </div>
+        {!showBack ? (
+          <CardFrontRM elem={elem} handleShowBack={handleShowBack} />
+        ) : (
+          <CardBackRM elem={elem} handleShowBack={handleShowBack} />
+        )}
       </Card>
     </Col>
   );
