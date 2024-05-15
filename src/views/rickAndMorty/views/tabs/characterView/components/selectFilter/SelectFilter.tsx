@@ -35,7 +35,7 @@ export const SelectFilter: FC<ISelectFilterProps> = ({
           className="select-filter-rickMorty"
           htmlFor="floatingGenderSelect"
         >
-          Filtrar Género
+          Género
         </label>
       </Col>
       <Col xs={3} className="mb-3 pt-3 form-floating">
@@ -55,7 +55,7 @@ export const SelectFilter: FC<ISelectFilterProps> = ({
           className="select-filter-rickMorty"
           htmlFor="floatingStatusSelect"
         >
-          Filtrar Estado
+          Estado
         </label>
       </Col>
     </>

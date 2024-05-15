@@ -22,8 +22,8 @@ export const CardsCharacter: FC<ICardsCharacterProps> = ({ elem }) => {
             <hr />
             <Card.Text>Origen: {elem.origin.name}</Card.Text>
             <Card.Text>Especie: {elem.species}</Card.Text>
-            <Card.Text>Género: {elem.gender}</Card.Text>
-            <Card.Text>Estado: {elem.status}</Card.Text>
+            {/* <Card.Text>Género: {elem.gender}</Card.Text>
+            <Card.Text>Estado: {elem.status}</Card.Text> */}
           </Card.Body>
         </div>
       </Card>
