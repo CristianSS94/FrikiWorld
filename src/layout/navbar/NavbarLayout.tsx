@@ -1,14 +1,12 @@
-import { FC, useContext } from "react";
+import { FC } from "react";
 import { Container, Nav, Navbar } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
+import { IApisPanel, apisData } from "../../data/configApisData";
 import { ERoutes } from "../../models/enums/Common-routes";
 import "./Navbar.scss";
-import { FrikiWorldContext, IApisPanel } from "../../context/FrikiWorldContext";
 
 export const NavbarLayout: FC = () => {
-  const { apisData } = useContext(FrikiWorldContext);
-
   return (
     <Navbar
       bg="dark"
@@ -36,34 +34,6 @@ export const NavbarLayout: FC = () => {
                   </Nav.Link>
                 );
               })}
-            {/* <Nav.Link
-              as={Link}
-              to={ERoutes.RYCKANDMORTY_VIEWS}
-              className="col-auto link-rick-morty"
-            >
-              {apisData[0].apiName}
-            </Nav.Link>
-            <Nav.Link
-              as={Link}
-              to={ERoutes.SIMPSON_VIEWS}
-              className="col-auto link-the-simpson"
-            >
-              LOS SIMPSON
-            </Nav.Link>
-            <Nav.Link
-              as={Link}
-              to={ERoutes.RYCKANDMORTY_VIEWS}
-              className="col-auto link-star-wars"
-            >
-              STAR WARS
-            </Nav.Link>
-            <Nav.Link
-              as={Link}
-              to={ERoutes.RYCKANDMORTY_VIEWS}
-              className="col-auto link-pokemon-font"
-            >
-              PoKéMoN
-            </Nav.Link> */}
           </Nav>
         </Navbar.Collapse>
       </Container>

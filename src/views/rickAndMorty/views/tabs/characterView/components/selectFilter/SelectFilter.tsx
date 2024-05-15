@@ -2,8 +2,8 @@ import { ChangeEvent, FC } from "react";
 import { Col, Form } from "react-bootstrap";
 
 import {
-  getOptionGenderSelector,
-  getOptionStatusSelector,
+  optionGenderSelector,
+  optionStatusSelector,
 } from "../../../../../enums";
 
 interface ISelectFilterProps {
@@ -17,35 +17,46 @@ export const SelectFilter: FC<ISelectFilterProps> = ({
 }) => {
   return (
     <>
-      <Col xs={3} className="mb-3 pt-3">
+      <Col xs={3} className="mb-3 pt-3 form-floating">
         <Form.Select
+          id="floatingGenderSelect"
+          className="form-control"
           aria-label="Default select example"
           onChange={onGenderChange}
         >
-          <option value="">Géneros</option>
-          {getOptionGenderSelector.map((option, index) => (
-            <option
-              key={index}
-              value={option.value}
-              className="tocameloshuevos"
-            >
-              {option.label}
-            </option>
-          ))}
-        </Form.Select>
-      </Col>
-      <Col xs={3} className="mb-3 pt-3">
-        <Form.Select
-          aria-label="Default select example"
-          onChange={onStatusChange}
-        >
-          <option value="">Estados</option>
-          {getOptionStatusSelector.map((option, index) => (
+          <option value="">Todos</option>
+          {optionGenderSelector.map((option, index) => (
             <option key={index} value={option.value}>
               {option.label}
             </option>
           ))}
         </Form.Select>
+        <label
+          className="select-filter-rickMorty"
+          htmlFor="floatingGenderSelect"
+        >
+          Filtrar Género
+        </label>
+      </Col>
+      <Col xs={3} className="mb-3 pt-3 form-floating">
+        <Form.Select
+          id="floatingStatusSelect"
+          aria-label="Default select example"
+          onChange={onStatusChange}
+        >
+          <option value="">Todos</option>
+          {optionStatusSelector.map((option, index) => (
+            <option key={index} value={option.value}>
+              {option.label}
+            </option>
+          ))}
+        </Form.Select>
+        <label
+          className="select-filter-rickMorty"
+          htmlFor="floatingStatusSelect"
+        >
+          Filtrar Estado
+        </label>
       </Col>
     </>
   );

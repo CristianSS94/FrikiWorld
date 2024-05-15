@@ -20,7 +20,7 @@ export const EpisodeView: FC = () => {
         </Row>
       ) : (
         <>
-          <Row className="row-input-rickmorty">
+          <Row className="row-inputs-rickmorty">
             <InputSearch
               onChange={onChange}
               searchValue={searchValue}

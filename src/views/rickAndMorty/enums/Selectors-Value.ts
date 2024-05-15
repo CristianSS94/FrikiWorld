@@ -5,7 +5,7 @@ export enum EGenderSelector {
   GENDERLESS = "Genderless",
 }
 
-export const getLabelGender = (gender: EGenderSelector) => {
+export const optionLabelGender = (gender: EGenderSelector) => {
   switch (gender) {
     case EGenderSelector.MALE:
       return "Masculino";
@@ -20,10 +20,10 @@ export const getLabelGender = (gender: EGenderSelector) => {
   }
 };
 
-export const getOptionGenderSelector = Object.values(EGenderSelector).map(
+export const optionGenderSelector = Object.values(EGenderSelector).map(
   (elem) => ({
     value: elem,
-    label: getLabelGender(elem),
+    label: optionLabelGender(elem),
   })
 );
 
@@ -35,7 +35,7 @@ export enum EStatusSelector {
   UNKNOWN = "unknown",
 }
 
-export const getLabelStatus = (status: EStatusSelector) => {
+export const optionLabelStatus = (status: EStatusSelector) => {
   switch (status) {
     case EStatusSelector.ALIVE:
       return "Vivo";
@@ -49,9 +49,9 @@ export const getLabelStatus = (status: EStatusSelector) => {
   }
 };
 
-export const getOptionStatusSelector = Object.values(EStatusSelector).map(
+export const optionStatusSelector = Object.values(EStatusSelector).map(
   (elem) => ({
     value: elem,
-    label: getLabelStatus(elem),
+    label: optionLabelStatus(elem),
   })
 );

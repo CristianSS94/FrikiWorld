@@ -46,41 +46,27 @@ export const useCharacterData = () => {
     setFilterStatus(e.target.value);
   };
 
+  //Logica de filtrado de los personajes
   const dataFiltered: ICharacter[] | undefined = useMemo(() => {
-    // No hay ningun input marcado
-    if (!filterGender && !filterStatus && !searchValue) return dataCharacter;
-    // Buscador pero ningun select
-    else if (searchValue && !filterStatus && !filterGender)
-      return dataCharacter?.filter((e) =>
+    let _dataFiltered = dataCharacter;
+
+    if (searchValue) {
+      _dataFiltered = _dataFiltered?.filter((e) =>
         e.name.toLowerCase().includes(searchValue.toLowerCase())
       );
-    //No buscador, pero si select de genero, no select de status
-    else if (!searchValue && filterGender && !filterStatus)
-      return dataCharacter?.filter((e) => e.gender.includes(filterGender));
-    //No buscador, pero si select de estado, no select de genero
-    else if (!searchValue && !filterGender && filterStatus)
-      return dataCharacter?.filter((e) => e.status.includes(filterStatus));
-    //No buscador, pero si ambos select
-    else if (!searchValue && filterGender && filterStatus)
-      return dataCharacter
-        ?.filter((e) => e.gender.includes(filterGender))
-        .filter((e) => e.status.includes(filterStatus));
-    // Buscador y select de Genero
-    else if (searchValue && filterGender && !filterStatus)
-      return dataCharacter
-        ?.filter((e) => e.name.toLowerCase().includes(searchValue))
-        .filter((e) => e.gender.includes(filterGender));
-    // Buscador y select de Status
-    else if (searchValue && !filterGender && filterStatus)
-      return dataCharacter
-        ?.filter((e) => e.name.toLowerCase().includes(searchValue))
-        .filter((e) => e.status.includes(filterStatus));
-    // Buscador y ambos select
-    else if (searchValue && !filterGender && !filterStatus)
-      return dataCharacter
-        ?.filter((e) => e.name.toLowerCase().includes(searchValue))
-        .filter((e) => e.status.includes(filterStatus))
-        .filter((e) => e.gender.includes(filterGender));
+    }
+    if (filterStatus) {
+      _dataFiltered = _dataFiltered?.filter((e) =>
+        e.status.includes(filterStatus)
+      );
+    }
+    if (filterGender) {
+      _dataFiltered = _dataFiltered?.filter((e) =>
+        e.gender.includes(filterGender)
+      );
+    }
+
+    return _dataFiltered;
   }, [searchValue, dataCharacter, filterGender, filterStatus]);
 
   return {

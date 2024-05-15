@@ -13,10 +13,9 @@ export const InputSearch: FC<IInputSearchProps> = ({
   placeHolder,
 }) => {
   return (
-    <Col xs={6} className="mb-3 pt-3">
+    <Col xs={6} className="mb-3 pt-3 col-buscador-rickMorty">
       <Form.Control
         type="text"
-        id="inputPassword5"
         aria-describedby="passwordHelpBlock"
         onChange={onChange}
         value={searchValue}

@@ -37,7 +37,7 @@
   overflow-y: auto;
   z-index: 1;
   position: relative;
-  height: calc(100vh - 15rem);
+  height: calc(100vh - 15.125rem);
   scroll-behavior: smooth;
 
   //Scroll de la api de Rick Morty
@@ -67,6 +67,13 @@
     color: #00aac2;
     -webkit-text-stroke: 0.04rem #97ce4c;
     text-align: center;
+
+    @media (min-width: 1400px) {
+      max-height: 400px;
+    }
+    @media (min-width: 1200px) and (max-width: 1399px) {
+      max-height: 300px;
+    }
   }
 }
 
@@ -77,10 +84,36 @@
 
 //Buscador de la api de Rick Morty
 .row-inputs-rickmorty {
-  div {
-    input {
+  .form-floating {
+    height: 100%;
+
+    .form-select {
+      min-height: 0 !important;
+      height: 2.5rem;
+      padding: 0.375rem 0.75rem !important;
       color: #00aac2;
       border-color: #97ce4c !important;
+
+      &:focus {
+        border-color: #97ce4c !important;
+        color: #00aac2;
+        box-shadow: 0 0 0 0.1rem#97ce4c;
+      }
+    }
+
+    .select-filter-rickMorty {
+      color: #97ce4c !important;
+    }
+  }
+  //BUSCADOR
+  .col-buscador-rickMorty {
+    display: flex;
+    align-items: center;
+
+    .form-control {
+      color: #00aac2;
+      border-color: #97ce4c !important;
+      height: 2.5rem;
 
       &:focus {
         border-color: #97ce4c !important;
@@ -90,21 +123,6 @@
 
       &::placeholder {
         color: #00aac2;
-      }
-    }
-  }
-
-  div {
-    select {
-      color: #00aac2;
-      border-color: #97ce4c !important;
-      &:focus {
-        border-color: #97ce4c !important;
-        color: #00aac2;
-        box-shadow: 0 0 0 0.1rem#97ce4c;
-      }
-      option:hover {
-        background-color: lightgray !important; /* Cambia el color de fondo al pasar el cursor */
       }
     }
   }

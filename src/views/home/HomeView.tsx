@@ -1,16 +1,12 @@
-import { FC, useContext } from "react";
+import { FC } from "react";
 import { Button, Card, Col, Container, Row } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 
-import {
-  FrikiWorldContext,
-  TKeyConfigApis,
-} from "../../context/FrikiWorldContext";
+import { TKeyConfigApis, apisData } from "../../data/configApisData";
 import "./Home.scss";
 
 export const HomeView: FC = () => {
   const navigate = useNavigate();
-  const { apisData } = useContext(FrikiWorldContext);
 
   return (
     <Container fluid className="contenedor-principal-homeView">
