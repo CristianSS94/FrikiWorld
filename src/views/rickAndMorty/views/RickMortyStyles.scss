@@ -70,6 +70,10 @@
     text-align: center;
     box-shadow: 0 0 15px rgba(151, 206, 76, 1);
 
+    &:hover {
+      box-shadow: 0 0 15px rgba(0, 170, 194, 1);
+    }
+
     @media (min-width: 1400px) {
       max-height: 400px;
     }
