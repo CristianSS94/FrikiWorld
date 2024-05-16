@@ -28,18 +28,20 @@ export const CharacterView: FC = () => {
       ) : (
         <>
           <Row className="row-inputs-rickmorty">
-            <InputSearch
-              onChange={onChange}
-              searchValue={searchValue}
-              placeHolder={placeHolder}
-            />
+            <Col xs={4} lg={6} className="mb-3 pt-3 col-buscador-rickMorty">
+              <InputSearch
+                onChange={onChange}
+                searchValue={searchValue}
+                placeHolder={placeHolder}
+              />
+            </Col>
             <SelectFilter
               onStatusChange={onStatusChange}
               onGenderChange={onGenderChange}
             />
           </Row>
           <Row className="card-scroll-views">
-            {dataFiltered && dataFiltered?.length !== 0 ? (
+            {dataFiltered && dataFiltered?.length ? (
               dataFiltered.map((elem) => (
                 <CardsCharacter elem={elem} key={elem.id} />
               ))

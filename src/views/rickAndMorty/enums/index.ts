@@ -4,4 +4,4 @@ export {
   EStatusSelector,
   optionGenderSelector,
   optionStatusSelector,
-} from "./Selectors-Value";
+} from "./Selectors-Value-Character";

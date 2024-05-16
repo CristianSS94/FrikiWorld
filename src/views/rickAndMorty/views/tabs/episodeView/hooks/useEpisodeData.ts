@@ -29,17 +29,37 @@ export const useEpidodeData = () => {
 
   useEffect(() => getAllDatas(), [arrayPromesasData]);
 
+  //Logica del buscador de Episodios
   const [searchValue, setSearchValue] = useState<string>("");
 
   const onChange = (e: ChangeEvent<HTMLInputElement>) =>
     setSearchValue(e.target.value);
 
-  const dataFiltered: IEpisode[] | undefined = useMemo(() => {
-    if (!searchValue) return dataEpisode;
-    return dataEpisode?.filter((e) =>
-      e.name.toLowerCase().includes(searchValue.toLowerCase())
-    );
-  }, [searchValue, dataEpisode]);
+  //Lógica del Select de temporadas
 
-  return { dataEpisode, onChange, dataFiltered, searchValue };
+  const [filterSeason, setFilterSeason] = useState<string>("");
+
+  const onSeasonChange = (e: ChangeEvent<HTMLSelectElement>) => {
+    setFilterSeason(e.target.value);
+  };
+
+  console.log(filterSeason);
+
+  const dataFiltered: IEpisode[] | undefined = useMemo(() => {
+    let _dataFiltered = dataEpisode;
+    if (searchValue) {
+      _dataFiltered = _dataFiltered?.filter((e) =>
+        e.name.toLowerCase().includes(searchValue.toLowerCase())
+      );
+    }
+    if (filterSeason) {
+      _dataFiltered = _dataFiltered?.filter((e) =>
+        e.episode.toLowerCase().includes(filterSeason.toLowerCase())
+      );
+    }
+
+    return _dataFiltered;
+  }, [searchValue, dataEpisode, filterSeason]);
+
+  return { dataEpisode, onChange, dataFiltered, searchValue, onSeasonChange };
 };

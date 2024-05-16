@@ -75,10 +75,10 @@
     }
 
     @media (min-width: 1400px) {
-      max-height: 400px;
+      max-height: 40px;
     }
     @media (min-width: 1200px) and (max-width: 1399px) {
-      max-height: 300px;
+      max-height: 350px;
     }
 
     .card-back {
@@ -144,6 +144,7 @@
 .boton-masInfo-RickMorty {
   background-color: #00aac2;
   border-color: #97ce4c;
+
   &:hover {
     background-color: #97ce4c;
     color: #00aac2;
