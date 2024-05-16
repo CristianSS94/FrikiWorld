@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import { FC } from "react";
 import { Col, Table } from "react-bootstrap";
 import { IEpisode } from "../../../../../models/IEpisodeDTO";
 

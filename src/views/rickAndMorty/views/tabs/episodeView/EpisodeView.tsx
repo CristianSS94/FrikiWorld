@@ -1,13 +1,12 @@
 import { FC, useContext } from "react";
 import { Col, Row } from "react-bootstrap";
 
-import { RickMortyContext } from "../../../context/RickMortyContext";
-import { CardsEpisode } from "./components/cardsEpidode/CardsEpisode";
-import { useEpidodeData } from "./hooks/useEpisodeData";
-import { InputSearch } from "../components/InputSearch/InputSearch";
 import { SpinnerComponent } from "../../../../../components/SpinnerComponent/SpinnerComponent";
+import { RickMortyContext } from "../../../context/RickMortyContext";
+import { InputSearch } from "../components/InputSearch/InputSearch";
 import { SelectFilterEpisode } from "./components/selectFilterEpisode/SelectFilterEpisode";
 import { TableEpisode } from "./components/tableEpisode/TableEpisode";
+import { useEpidodeData } from "./hooks/useEpisodeData";
 
 export const EpisodeView: FC = () => {
   const { loadingCharacter } = useContext(RickMortyContext);

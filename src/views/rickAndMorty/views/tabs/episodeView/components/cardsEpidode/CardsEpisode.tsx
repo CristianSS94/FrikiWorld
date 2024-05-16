@@ -1,12 +1,10 @@
 import { FC } from "react";
-import { Card, Col, Table } from "react-bootstrap";
+import { Card, Col } from "react-bootstrap";
 import { IEpisode } from "../../../../../models/IEpisodeDTO";
 
 interface ICardsEpidoseProps {
   elem: IEpisode;
 }
-
-
 
 export const CardsEpisode: FC<ICardsEpidoseProps> = ({ elem }) => {
   return (
@@ -17,7 +15,7 @@ export const CardsEpisode: FC<ICardsEpidoseProps> = ({ elem }) => {
             {" "}
             <h3> {elem.name}</h3>{" "}
           </Card.Title>
-          <Card.Text>{formatEpisode(elem.episode)}</Card.Text>
+          <Card.Text>{elem.episode}</Card.Text>
           <Card.Text>{elem.air_date}</Card.Text>
         </Card.Body>
       </Card>
