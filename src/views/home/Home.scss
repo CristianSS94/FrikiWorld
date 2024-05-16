@@ -1,61 +1,31 @@
+@font-face {
+  font-family: "El señor de los anillos";
+  src: url("/fonts/el_señor_de_los_anillos.ttf") format("truetype");
+}
+
 .contenedor-principal-homeView {
+  h1,
+  h2 {
+    padding-top: 0.5rem;
+    color: #f8cd5a;
+    font-family: "El señor de los anillos", sans-serif;
+    text-shadow: 2px 2px 0px #ffffff, -2px -2px 0px #000000;
+  }
+
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: calc(100vh - 7rem);
-  background-image: radial-gradient(
-      circle at center center,
-      transparent 0%,
-      #ffffff
-    ),
-    linear-gradient(
-      78deg,
-      rgba(192, 192, 192, 0.05) 0%,
-      rgba(192, 192, 192, 0.05) 50%,
-      rgba(60, 60, 60, 0.05) 50%,
-      rgba(60, 60, 60, 0.05) 100%
-    ),
-    linear-gradient(
-      227deg,
-      rgba(97, 97, 97, 0.05) 0%,
-      rgba(97, 97, 97, 0.05) 50%,
-      rgba(52, 52, 52, 0.05) 50%,
-      rgba(52, 52, 52, 0.05) 100%
-    ),
-    linear-gradient(
-      240deg,
-      rgba(98, 98, 98, 0.05) 0%,
-      rgba(98, 98, 98, 0.05) 50%,
-      rgba(249, 249, 249, 0.05) 50%,
-      rgba(249, 249, 249, 0.05) 100%
-    ),
-    linear-gradient(
-      187deg,
-      rgba(1, 1, 1, 0.05) 0%,
-      rgba(1, 1, 1, 0.05) 50%,
-      rgba(202, 202, 202, 0.05) 50%,
-      rgba(202, 202, 202, 0.05) 100%
-    ),
-    linear-gradient(
-      101deg,
-      rgba(61, 61, 61, 0.05) 0%,
-      rgba(61, 61, 61, 0.05) 50%,
-      rgba(254, 254, 254, 0.05) 50%,
-      rgba(254, 254, 254, 0.05) 100%
-    ),
-    linear-gradient(
-      176deg,
-      rgba(237, 237, 237, 0.05) 0%,
-      rgba(237, 237, 237, 0.05) 50%,
-      rgba(147, 147, 147, 0.05) 50%,
-      rgba(147, 147, 147, 0.05) 100%
-    ),
-    linear-gradient(
-      304deg,
-      rgba(183, 183, 183, 0.05) 0%,
-      rgba(183, 183, 183, 0.05) 50%,
-      rgba(57, 57, 57, 0.05) 50%,
-      rgba(57, 57, 57, 0.05) 100%
-    ),
-    radial-gradient(circle at center center, #fffffc, #dfdbd0, #cfc9ba, #beb7a4);
+  background-image: linear-gradient(rgba(5, 5, 5, 0.6), rgba(0, 0, 0, 0.01)),
+    url("./images/fondo.jpg");
+  background-size: cover;
+
+  .card-home-apis {
+    cursor: pointer;
+
+    &:hover {
+      box-shadow: 0px 0px 2px 2px RGB(248, 205, 90, 0.9);
+      transform: scale(1.05);
+    }
+  }
 }

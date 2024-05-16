@@ -31,7 +31,7 @@ export const apisData: IConfigApis = {
   },
   "2": {
     apiName: "STAR WARS",
-    apiImage: "images/star-wars.jpg",
+    apiImage: "images/star-wars2.jpg",
     apiUrl: ERoutes.STARWARS_VIEWS,
     apiClassName: "link-star-wars",
     apiDescription:

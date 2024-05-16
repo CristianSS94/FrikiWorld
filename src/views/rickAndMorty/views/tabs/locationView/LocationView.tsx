@@ -1,5 +1,5 @@
 import { FC, useContext } from "react";
-import { Row } from "react-bootstrap";
+import { Col, Row } from "react-bootstrap";
 
 import { RickMortyContext } from "../../../context/RickMortyContext";
 import { CardsLocation } from "./components/cardsLocation/CardsLocation";
@@ -21,11 +21,13 @@ export const LocationView: FC = () => {
       ) : (
         <>
           <Row className="row-inputs-rickmorty">
-            <InputSearch
-              onChange={onChange}
-              searchValue={searchValue}
-              placeHolder={placeHolder}
-            />
+            <Col xs={6} className="pt-3 mb-3 col-buscador-rickMorty">
+              <InputSearch
+                onChange={onChange}
+                searchValue={searchValue}
+                placeHolder={placeHolder}
+              />
+            </Col>
           </Row>
           <Row className="card-scroll-views">
             {dataFiltered?.map((elem) => (
