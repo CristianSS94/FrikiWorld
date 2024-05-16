@@ -7,6 +7,7 @@ import { useEpidodeData } from "./hooks/useEpisodeData";
 import { InputSearch } from "../components/InputSearch/InputSearch";
 import { SpinnerComponent } from "../../../../../components/SpinnerComponent/SpinnerComponent";
 import { SelectFilterEpisode } from "./components/selectFilterEpisode/SelectFilterEpisode";
+import { TableEpisode } from "./components/tableEpisode/TableEpisode";
 
 export const EpisodeView: FC = () => {
   const { loadingCharacter } = useContext(RickMortyContext);
@@ -32,7 +33,7 @@ export const EpisodeView: FC = () => {
             </Col>
             <SelectFilterEpisode onSeasonChange={onSeasonChange} />
           </Row>
-          <Row className="card-scroll-views">
+          {/* <Row className="card-scroll-views">
             {dataFiltered && dataFiltered.length ? (
               dataFiltered?.map((elem) => (
                 <CardsEpisode elem={elem} key={elem.id} />
@@ -42,6 +43,9 @@ export const EpisodeView: FC = () => {
                 <h6>No hay resultados</h6>
               </Col>
             )}
+          </Row> */}
+          <Row>
+            <TableEpisode dataFiltered={dataFiltered} />
           </Row>
         </>
       )}

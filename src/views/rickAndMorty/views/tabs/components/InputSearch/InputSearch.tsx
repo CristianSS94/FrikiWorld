@@ -1,5 +1,5 @@
 import { ChangeEvent, FC } from "react";
-import { Col, Form } from "react-bootstrap";
+import { Form } from "react-bootstrap";
 
 interface IInputSearchProps {
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;

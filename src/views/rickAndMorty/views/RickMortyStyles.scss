@@ -90,6 +90,43 @@
   }
 }
 
+.table-episode-rickMorty {
+  overflow-y: auto;
+  z-index: 1;
+  position: relative;
+  height: calc(100vh - 15.125rem);
+  scroll-behavior: smooth;
+
+  .tabla-content-rickMorty {
+    border-color: #97ce4c;
+    table-layout: fixed;
+    --bs-table-striped-bg: rgba(0, 170, 194, 0.1); //impares
+
+    th {
+      color: #00aac2;
+      -webkit-text-stroke: 0.04rem #97ce4c;
+      font-size: 1.5rem;
+    }
+    td {
+      color: #00aac2;
+      -webkit-text-stroke: 0.04rem #97ce4c;
+      word-wrap: break-word; /* Rompe las palabras largas que no se pueden ajustar de manera que no se desborden */
+    }
+  }
+
+  &::-webkit-scrollbar {
+    width: 1rem;
+    height: 1rem;
+    background-color: #00aac2;
+    border-radius: 5px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background-color: #97ce4c;
+  }
+}
+
 //Spinner de la api de Rick Morty
 .row-spinner-rickmorty {
   height: calc(100vh - 10.125rem);
