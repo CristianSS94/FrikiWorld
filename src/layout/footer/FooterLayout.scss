@@ -18,5 +18,9 @@
       text-decoration: none;
       color: #9b9d9e;
     }
+
+    @media (max-width: 576px) {
+      font-size: 0.7rem;
+    }
   }
 }
