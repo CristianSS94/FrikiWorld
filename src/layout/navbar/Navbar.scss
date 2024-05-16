@@ -2,6 +2,13 @@
 
 .contenedor-principal-nabvar {
   min-height: $heightHeader;
+
+  .link-rick-morty {
+    border-left: 1px solid rgb(248, 205, 90, 0.5);
+    @media (max-width: 992px) {
+      border-left: none;
+    }
+  }
 }
 
 @font-face {
@@ -48,4 +55,20 @@
   color: #f6c40c !important;
   -webkit-text-stroke: 0.1rem #2a63c5;
   line-height: 1rem;
+}
+
+@font-face {
+  font-family: "El señor de los anillos";
+  src: url("/fonts/el_señor_de_los_anillos.ttf") format("truetype");
+}
+
+.estilo-principal-web {
+  color: #f8cd5a;
+  font-family: "El señor de los anillos", sans-serif;
+  text-shadow: 1px 1px 0px #ffffff, -1px -1px 0px #000000;
+
+  &:focus,
+  :hover {
+    color: #f8cd5a !important;
+  }
 }

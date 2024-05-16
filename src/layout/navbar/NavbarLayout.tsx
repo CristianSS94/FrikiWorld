@@ -15,12 +15,16 @@ export const NavbarLayout: FC = () => {
       className="bg-body-tertiary contenedor-principal-nabvar"
     >
       <Container fluid>
-        <Navbar.Brand as={Link} to={ERoutes.HOME}>
+        <Navbar.Brand
+          as={Link}
+          to={ERoutes.HOME}
+          className="estilo-principal-web"
+        >
           FrikiWorld
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
+          <Nav className="h-100">
             {apisData &&
               (Object.values(apisData) as IApisPanel[]).map((elem, index) => {
                 return (
@@ -34,6 +38,10 @@ export const NavbarLayout: FC = () => {
                   </Nav.Link>
                 );
               })}
+            {/* <Nav.Link>
+              {" "}
+              <i className="pi pi-github"></i>
+            </Nav.Link> */}
           </Nav>
         </Navbar.Collapse>
       </Container>

@@ -15,7 +15,7 @@ export const HomeView: FC = () => {
           <h1>Bienvenido a FrikiWorld</h1>
         </Col>
         <Col xs={12} className="text-center">
-          <h2 className="mb-4">¿Que te apetece ver ?</h2>
+          <h2 className="mb-4">Adelante, elige que te apetece ver</h2>
         </Col>
         {(Object.keys(apisData) as TKeyConfigApis[]).map((elem, index) => {
           return (
