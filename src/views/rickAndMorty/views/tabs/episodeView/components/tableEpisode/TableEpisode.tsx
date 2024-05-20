@@ -6,13 +6,19 @@ interface ITableEpisodeProps {
   dataFiltered: IEpisode[] | undefined;
 }
 
-const formatEpisode = (algo: string) => {
-  let episodeFormated = algo;
+const formatEpisode = (dataEpisode: string) => {
+  let episodeFormated = dataEpisode;
 
-  if (algo[4] === "0") {
-    episodeFormated = `Season ${algo.slice(2, 3)}, episode ${algo.slice(5)}`;
+  if (dataEpisode[4] === "0") {
+    episodeFormated = `Season ${dataEpisode.slice(
+      2,
+      3
+    )}, episode ${dataEpisode.slice(5)}`;
   } else {
-    episodeFormated = `Season ${algo.slice(2, 3)}, episode ${algo.slice(4)}`;
+    episodeFormated = `Season ${dataEpisode.slice(
+      2,
+      3
+    )}, episode ${dataEpisode.slice(4)}`;
   }
 
   return episodeFormated;

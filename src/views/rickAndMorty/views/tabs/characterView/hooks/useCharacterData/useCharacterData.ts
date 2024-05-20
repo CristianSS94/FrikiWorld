@@ -4,6 +4,13 @@ import { FrikiWorldContext } from "../../../../../../../context/FrikiWorldContex
 import { ERickMortyRoutes } from "../../../../../enums/Rick-Morty-routes";
 import { ICharacterDTO } from "../../../../../models";
 import { ICharacter } from "../../../../../models/ICharacterDTO";
+import { ISelectProps } from "../../../components/SelectGeneral/SelectGeneral";
+import {
+  optionGenderSelector,
+  optionStatusSelector,
+} from "../../../../../enums";
+import { IInputSearchProps } from "../../../components/InputSearch/InputSearch";
+import { SpinnerComponentProps } from "../../../../../../../components/SpinnerComponent/SpinnerComponent";
 
 export const useCharacterData = () => {
   const [dataCharacter, setDataCharacter] = useState<ICharacter[]>();
@@ -69,14 +76,48 @@ export const useCharacterData = () => {
     return _dataFiltered;
   }, [searchValue, dataCharacter, filterGender, filterStatus]);
 
+  const configCharacterGenderSelector: ISelectProps = {
+    idSelector: "Gender",
+    labelClassname: "select-filter-rickMorty",
+    onChange: onGenderChange,
+    optionSelector: optionGenderSelector,
+    colProps: { xs: 4, lg: 3, className: "mb-3 pt-3 form-floating" },
+    labelOption: "Género",
+  };
+
+  const configCharacterStatusSelector: ISelectProps = {
+    idSelector: "Status",
+    labelClassname: "select-filter-rickMorty",
+    onChange: onStatusChange,
+    optionSelector: optionStatusSelector,
+    colProps: { xs: 4, lg: 3, className: "mb-3 pt-3 form-floating" },
+    labelOption: "Estado",
+  };
+
+  const configCharacterSpinner: SpinnerComponentProps = {
+    rowClassNameSpinner: "row-spinner-rickmorty",
+  };
+
+  const configCharacterInputSearch: IInputSearchProps = {
+    colClassName: {
+      xs: 4,
+      lg: 6,
+      className: "mb-3 pt-3 col-buscador-rickMorty",
+    },
+    onChange,
+    searchValue,
+    placeHolder: "personaje",
+  };
+
   return {
     dataCharacter,
-    onChange,
     dataFiltered,
     searchValue,
-    onGenderChange,
-    onStatusChange,
     filterGender,
     filterStatus,
+    configCharacterInputSearch,
+    configCharacterSpinner,
+    configCharacterStatusSelector,
+    configCharacterGenderSelector,
   };
 };

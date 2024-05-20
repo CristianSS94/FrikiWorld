@@ -1,13 +1,17 @@
 import axios from "axios";
 import { ChangeEvent, useContext, useEffect, useMemo, useState } from "react";
 
-import { RickMortyContext } from "../../../../context/RickMortyContext";
+import { FrikiWorldContext } from "../../../../../../context/FrikiWorldContext";
 import { ERickMortyRoutes } from "../../../../enums/Rick-Morty-routes";
-import { IEpisodeDTO, IEpisode } from "../../../../models/IEpisodeDTO";
+import { IEpisode, IEpisodeDTO } from "../../../../models/IEpisodeDTO";
+import { optionEpisodeSelector } from "../../../../enums/Selector-Value-Episode";
+import { IInputSearchProps } from "../../components/InputSearch/InputSearch";
+import { ISelectProps } from "../../components/SelectGeneral/SelectGeneral";
+import { SpinnerComponentProps } from "../../../../../../components/SpinnerComponent/SpinnerComponent";
 
 export const useEpidodeData = () => {
   const [dataEpisode, setDataEpisode] = useState<IEpisode[]>();
-  const { setLoadingCharacter } = useContext(RickMortyContext);
+  const { setLoadingView } = useContext(FrikiWorldContext);
 
   const arrayPromesasData = useMemo(() => {
     const array = Array.from({ length: 3 }, (_, i) => i + 1);
@@ -18,13 +22,13 @@ export const useEpidodeData = () => {
   }, []);
 
   const getAllDatas = () => {
-    setLoadingCharacter(true);
+    setLoadingView(true);
     Promise.all(arrayPromesasData)
       .then((res) => {
         const getDataFromApi = res.flatMap((element) => element.data.results);
         setDataEpisode(getDataFromApi);
       })
-      .finally(() => setLoadingCharacter(false));
+      .finally(() => setLoadingView(false));
   };
 
   useEffect(() => getAllDatas(), [arrayPromesasData]);
@@ -43,8 +47,6 @@ export const useEpidodeData = () => {
     setFilterSeason(e.target.value);
   };
 
-  console.log(filterSeason);
-
   const dataFiltered: IEpisode[] | undefined = useMemo(() => {
     let _dataFiltered = dataEpisode;
     if (searchValue) {
@@ -61,5 +63,37 @@ export const useEpidodeData = () => {
     return _dataFiltered;
   }, [searchValue, dataEpisode, filterSeason]);
 
-  return { dataEpisode, onChange, dataFiltered, searchValue, onSeasonChange };
+  //Configuracion de los select y el input
+
+  const configEpisodeSelector: ISelectProps = {
+    idSelector: "Episode",
+    labelClassname: "select-filter-rickMorty",
+    onChange: onSeasonChange,
+    optionSelector: optionEpisodeSelector,
+    colProps: { xs: 6, className: "mb-3 pt-3 form-floating" },
+    labelOption: "Temporada",
+  };
+
+  const configEpisodeSearch: IInputSearchProps = {
+    colClassName: {
+      xs: 6,
+      lg: 6,
+      className: "mb-3 pt-3 col-buscador-rickMorty",
+    },
+    onChange,
+    placeHolder: "epidosio",
+    searchValue,
+  };
+
+  const configEpsisodeSpinner: SpinnerComponentProps = {
+    rowClassNameSpinner: "row-spinner-rickmorty",
+  };
+
+  return {
+    dataEpisode,
+    dataFiltered,
+    configEpisodeSearch,
+    configEpisodeSelector,
+    configEpsisodeSpinner,
+  };
 };

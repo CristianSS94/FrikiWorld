@@ -3,10 +3,13 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import { FooterLayout, NavbarLayout } from "../layout";
 import { ERoutes } from "../models/enums/Common-routes";
-import { HomeView, RickMortyContainer } from "../views";
-import { SimpsonContainer } from "../views/losSimpson/SimpsonContainer";
-import { StarWarsContainer } from "../views/starWars/StarWarsContainer";
-import { PokemonContainer } from "../views/pokemon/PokemonContainer";
+import {
+  HomeView,
+  PokemonContainer,
+  RickMortyContainer,
+  SimpsonContainer,
+  StarWarsContainer,
+} from "../views";
 
 export const RoutesApp: FC = () => {
   return (

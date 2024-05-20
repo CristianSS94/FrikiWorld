@@ -1,24 +1,28 @@
 import { ChangeEvent, FC } from "react";
-import { Form } from "react-bootstrap";
+import { Col, ColProps, Form } from "react-bootstrap";
 
-interface IInputSearchProps {
+export interface IInputSearchProps {
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
   searchValue: string;
   placeHolder: string;
+  colClassName: ColProps;
 }
 
 export const InputSearch: FC<IInputSearchProps> = ({
   onChange,
   searchValue,
   placeHolder,
+  colClassName,
 }) => {
   return (
-    <Form.Control
-      type="text"
-      aria-describedby="passwordHelpBlock"
-      onChange={onChange}
-      value={searchValue}
-      placeholder={`Buscar ${placeHolder}`}
-    />
+    <Col {...colClassName}>
+      <Form.Control
+        type="text"
+        aria-describedby="passwordHelpBlock"
+        onChange={onChange}
+        value={searchValue}
+        placeholder={`Buscar ${placeHolder}`}
+      />
+    </Col>
   );
 };

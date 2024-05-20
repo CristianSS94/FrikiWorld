@@ -4,6 +4,9 @@
 }
 
 .contenedor-principal-homeView {
+  display: flex;
+  flex-direction: column;
+
   h1,
   h2 {
     padding-top: 0.5rem;

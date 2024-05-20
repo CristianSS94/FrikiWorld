@@ -1,32 +1,37 @@
 import { FC, useContext } from "react";
 import { Col, Row } from "react-bootstrap";
 
-import { RickMortyContext } from "../../../context/RickMortyContext";
+import { SpinnerComponent } from "../../../../../components/SpinnerComponent/SpinnerComponent";
+import { FrikiWorldContext } from "../../../../../context/FrikiWorldContext";
+import {
+  IInputSearchProps,
+  InputSearch,
+} from "../components/InputSearch/InputSearch";
 import { CardsLocation } from "./components/cardsLocation/CardsLocation";
 import { useLocationData } from "./hooks/useLocationData";
-import { InputSearch } from "../components/InputSearch/InputSearch";
-import { SpinnerComponent } from "../../../../../components/SpinnerComponent/SpinnerComponent";
 
 export const LocationView: FC = () => {
-  const { loadingCharacter } = useContext(RickMortyContext);
+  const { loadingView } = useContext(FrikiWorldContext);
   const { onChange, searchValue, dataFiltered } = useLocationData();
-  const placeHolder = "ubicación";
+
+  const configLocationSearch: IInputSearchProps = {
+    onChange,
+    searchValue,
+    placeHolder: "ubicación",
+    colClassName: { xs: 6, className: "pt-3 mb-3 col-buscador-rickMorty" },
+  };
 
   return (
     <>
-      {loadingCharacter ? (
+      {loadingView ? (
         <Row className="row-spinner-rickmorty">
           <SpinnerComponent />
         </Row>
       ) : (
         <>
           <Row className="row-inputs-rickmorty">
-            <Col xs={6} className="pt-3 mb-3 col-buscador-rickMorty">
-              <InputSearch
-                onChange={onChange}
-                searchValue={searchValue}
-                placeHolder={placeHolder}
-              />
+            <Col>
+              <InputSearch {...configLocationSearch} />
             </Col>
           </Row>
           <Row className="card-scroll-views">

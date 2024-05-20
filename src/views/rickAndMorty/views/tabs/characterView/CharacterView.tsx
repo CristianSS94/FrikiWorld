@@ -1,44 +1,33 @@
 import { FC, useContext } from "react";
 import { Col, Row } from "react-bootstrap";
 
+import { SpinnerComponent } from "../../../../../components/SpinnerComponent/SpinnerComponent";
 import { FrikiWorldContext } from "../../../../../context/FrikiWorldContext";
 import { InputSearch } from "../components/InputSearch/InputSearch";
+import { SelectGeneral } from "../components/SelectGeneral/SelectGeneral";
+import { CardsCharacter } from "./components/cardsCharacter/CardsCharacter";
 import { useCharacterData } from "./hooks/useCharacterData/useCharacterData";
-import { CardsCharacter, SelectFilter } from "./components";
-import { SpinnerComponent } from "../../../../../components/SpinnerComponent/SpinnerComponent";
 
 export const CharacterView: FC = () => {
   const { loadingView } = useContext(FrikiWorldContext);
   const {
-    onChange,
     dataFiltered,
-    searchValue,
-    onGenderChange,
-    onStatusChange,
+    configCharacterSpinner,
+    configCharacterGenderSelector,
+    configCharacterInputSearch,
+    configCharacterStatusSelector,
   } = useCharacterData();
-
-  const placeHolder = "personaje";
 
   return (
     <>
       {loadingView ? (
-        <Row className="row-spinner-rickmorty">
-          <SpinnerComponent />
-        </Row>
+        <SpinnerComponent {...configCharacterSpinner} />
       ) : (
         <>
           <Row className="row-inputs-rickmorty">
-            <Col xs={4} lg={6} className="mb-3 pt-3 col-buscador-rickMorty">
-              <InputSearch
-                onChange={onChange}
-                searchValue={searchValue}
-                placeHolder={placeHolder}
-              />
-            </Col>
-            <SelectFilter
-              onStatusChange={onStatusChange}
-              onGenderChange={onGenderChange}
-            />
+            <InputSearch {...configCharacterInputSearch} />
+            <SelectGeneral {...configCharacterGenderSelector} />
+            <SelectGeneral {...configCharacterStatusSelector} />
           </Row>
           <Row className="card-scroll-views">
             {dataFiltered && dataFiltered?.length ? (

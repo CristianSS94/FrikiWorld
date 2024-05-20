@@ -1,13 +1,13 @@
 import axios from "axios";
 import { ChangeEvent, useContext, useEffect, useMemo, useState } from "react";
 
-import { RickMortyContext } from "../../../../context/RickMortyContext";
+import { FrikiWorldContext } from "../../../../../../context/FrikiWorldContext";
 import { ERickMortyRoutes } from "../../../../enums/Rick-Morty-routes";
 import { ILocation, ILocationDTO } from "../../../../models/ILocationDTO";
 
 export const useLocationData = () => {
   const [dataLocation, setDataLocation] = useState<ILocation[]>();
-  const { setLoadingCharacter } = useContext(RickMortyContext);
+  const { setLoadingView } = useContext(FrikiWorldContext);
 
   const arrayPromesasData = useMemo(() => {
     const array = Array.from({ length: 7 }, (_, i) => i + 1);
@@ -18,13 +18,13 @@ export const useLocationData = () => {
   }, []);
 
   const getAllDatas = () => {
-    setLoadingCharacter(true);
+    setLoadingView(true);
     Promise.all(arrayPromesasData)
       .then((res) => {
         const getDataFromApi = res.flatMap((element) => element.data.results);
         setDataLocation(getDataFromApi);
       })
-      .finally(() => setLoadingCharacter(false));
+      .finally(() => setLoadingView(false));
   };
 
   useEffect(() => getAllDatas(), [arrayPromesasData]);

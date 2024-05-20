@@ -1,14 +1,22 @@
 import { FC } from "react";
-import { Col, Spinner } from "react-bootstrap";
+import { Col, Row, Spinner } from "react-bootstrap";
 
 import "./SpinnerComponent.scss";
 
-export const SpinnerComponent: FC = () => {
+export interface SpinnerComponentProps {
+  rowClassNameSpinner?: string;
+}
+
+export const SpinnerComponent: FC<SpinnerComponentProps> = ({
+  rowClassNameSpinner,
+}) => {
   return (
-    <Col className="col-centrar-spinner">
-      <Spinner animation="border" role="status">
-        <span className="visually-hidden">Loading...</span>
-      </Spinner>
-    </Col>
+    <Row className={rowClassNameSpinner}>
+      <Col className="col-centrar-spinner">
+        <Spinner animation="border" role="status">
+          <span className="visually-hidden">Loading...</span>
+        </Spinner>
+      </Col>
+    </Row>
   );
 };
