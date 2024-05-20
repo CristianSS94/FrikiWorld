@@ -1,11 +1,11 @@
 import { FC, useContext } from "react";
 import { Card, Col, Row } from "react-bootstrap";
 
-import { IEpisodeSimpson } from "../../models/IEpisodeSimpson";
-import { useEpisodeSimpson } from "./hooks/useEpisodeSimpson";
+import { SpinnerLoading } from "../../../../components";
 import { FrikiWorldContext } from "../../../../context/FrikiWorldContext";
+import { IEpisodeSimpson } from "../../models/IEpisodeSimpson";
 import "./EpisodesSimpson.scss";
-import { SpinnerComponent } from "../../../../components/SpinnerComponent/SpinnerComponent";
+import { useEpisodeSimpson } from "./hooks/useEpisodeSimpson";
 
 export const EpisodesSimpson: FC = () => {
   const { simpsonEpisode } = useEpisodeSimpson();
@@ -15,7 +15,7 @@ export const EpisodesSimpson: FC = () => {
     <>
       {loadingView ? (
         <Row className="row-spinner-simpson">
-          <SpinnerComponent />
+          <SpinnerLoading />
         </Row>
       ) : (
         <Row>

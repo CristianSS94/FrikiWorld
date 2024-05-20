@@ -4,13 +4,13 @@ import { FrikiWorldContext } from "../../../../../../../context/FrikiWorldContex
 import { ERickMortyRoutes } from "../../../../../enums/Rick-Morty-routes";
 import { ICharacterDTO } from "../../../../../models";
 import { ICharacter } from "../../../../../models/ICharacterDTO";
-import { ISelectProps } from "../../../components/SelectGeneral/SelectGeneral";
+import { ISelectProps } from "../../../../../../../components/SelectFilter/SelectFilter";
 import {
   optionGenderSelector,
   optionStatusSelector,
 } from "../../../../../enums";
-import { IInputSearchProps } from "../../../components/InputSearch/InputSearch";
-import { SpinnerComponentProps } from "../../../../../../../components/SpinnerComponent/SpinnerComponent";
+import { IInputSearchProps } from "../../../../../../../components/InputSearch/InputSearch";
+import { spinnerLoadingProps } from "../../../../../../../components/SpinnerLoading/spinnerLoading";
 
 export const useCharacterData = () => {
   const [dataCharacter, setDataCharacter] = useState<ICharacter[]>();
@@ -94,7 +94,7 @@ export const useCharacterData = () => {
     labelOption: "Estado",
   };
 
-  const configCharacterSpinner: SpinnerComponentProps = {
+  const configCharacterSpinner: spinnerLoadingProps = {
     rowClassNameSpinner: "row-spinner-rickmorty",
   };
 

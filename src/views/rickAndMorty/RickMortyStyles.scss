@@ -30,6 +30,14 @@
   .nav-tabs {
     border-color: transparent transparent #97ce4c transparent !important;
   }
+
+  .vista-sin-resultados {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #00aac2;
+    height: 100%;
+  }
 }
 
 //Vista de las cards de personajes -> scrolables
@@ -54,13 +62,6 @@
     background-color: #97ce4c;
   }
 
-  .vista-sin-resultados {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #00aac2;
-  }
-
   .card-personajes-rickmorty {
     border-color: #97ce4c;
     width: 100%;
@@ -68,10 +69,10 @@
     color: #00aac2;
     -webkit-text-stroke: 0.04rem #97ce4c;
     text-align: center;
-    box-shadow: 0 0 15px rgba(151, 206, 76, 1);
+    box-shadow: 0 0 5px rgba(151, 206, 76, 1);
 
     &:hover {
-      box-shadow: 0 0 15px rgba(0, 170, 194, 1);
+      box-shadow: 0 0 10px rgba(0, 170, 194, 1);
     }
 
     @media (min-width: 1400px) {
@@ -89,44 +90,46 @@
     }
   }
 }
-
-.table-episode-rickMorty {
-  overflow-y: auto;
-  z-index: 1;
-  position: relative;
+.table-scroll-view {
   height: calc(100vh - 15.125rem);
-  scroll-behavior: smooth;
 
-  .tabla-content-rickMorty {
-    border-color: #97ce4c;
-    table-layout: fixed;
-    --bs-table-striped-bg: rgba(0, 170, 194, 0.1); //impares
+  .table-episode-rickMorty {
+    overflow-y: auto;
+    z-index: 1;
+    position: relative;
+    height: calc(100vh - 15.125rem);
+    scroll-behavior: smooth;
 
-    th {
-      color: #00aac2;
-      -webkit-text-stroke: 0.04rem #97ce4c;
-      font-size: 1.5rem;
+    .tabla-content-rickMorty {
+      border-color: #97ce4c;
+      table-layout: fixed;
+      --bs-table-striped-bg: rgba(0, 170, 194, 0.1); //impares
+
+      th {
+        color: #00aac2;
+        -webkit-text-stroke: 0.04rem #97ce4c;
+        font-size: 1.5rem;
+      }
+      td {
+        color: #00aac2;
+        -webkit-text-stroke: 0.04rem #97ce4c;
+        word-wrap: break-word; /* Rompe las palabras largas que no se pueden ajustar de manera que no se desborden */
+      }
     }
-    td {
-      color: #00aac2;
-      -webkit-text-stroke: 0.04rem #97ce4c;
-      word-wrap: break-word; /* Rompe las palabras largas que no se pueden ajustar de manera que no se desborden */
+
+    &::-webkit-scrollbar {
+      width: 1rem;
+      height: 1rem;
+      background-color: #00aac2;
+      border-radius: 5px;
     }
-  }
 
-  &::-webkit-scrollbar {
-    width: 1rem;
-    height: 1rem;
-    background-color: #00aac2;
-    border-radius: 5px;
-  }
-
-  &::-webkit-scrollbar-thumb {
-    border-radius: 5px;
-    background-color: #97ce4c;
+    &::-webkit-scrollbar-thumb {
+      border-radius: 5px;
+      background-color: #97ce4c;
+    }
   }
 }
-
 //Spinner de la api de Rick Morty
 .row-spinner-rickmorty {
   height: calc(100vh - 10.125rem);
@@ -179,12 +182,11 @@
 }
 
 .boton-masInfo-RickMorty {
-  background-color: #00aac2;
-  border-color: #97ce4c;
+  background-color: transparent;
+  border-color: transparent;
 
   &:hover {
-    background-color: #97ce4c;
-    color: #00aac2;
+    background-color: #00aac2;
     border-color: #97ce4c;
   }
 }

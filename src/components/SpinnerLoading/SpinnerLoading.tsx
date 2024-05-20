@@ -1,13 +1,13 @@
 import { FC } from "react";
 import { Col, Row, Spinner } from "react-bootstrap";
 
-import "./SpinnerComponent.scss";
+import "./SpinnerLoading.scss";
 
-export interface SpinnerComponentProps {
+export interface spinnerLoadingProps {
   rowClassNameSpinner?: string;
 }
 
-export const SpinnerComponent: FC<SpinnerComponentProps> = ({
+export const SpinnerLoading: FC<spinnerLoadingProps> = ({
   rowClassNameSpinner,
 }) => {
   return (

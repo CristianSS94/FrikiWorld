@@ -4,6 +4,10 @@ import { ChangeEvent, useContext, useEffect, useMemo, useState } from "react";
 import { FrikiWorldContext } from "../../../../../../context/FrikiWorldContext";
 import { ERickMortyRoutes } from "../../../../enums/Rick-Morty-routes";
 import { ILocation, ILocationDTO } from "../../../../models/ILocationDTO";
+import {
+  IInputSearchProps,
+  IViewNoResultsProps,
+} from "../../../../../../components";
 
 export const useLocationData = () => {
   const [dataLocation, setDataLocation] = useState<ILocation[]>();
@@ -41,5 +45,30 @@ export const useLocationData = () => {
     );
   }, [searchValue, dataLocation]);
 
-  return { dataLocation, onChange, dataFiltered, searchValue };
+  // const getTypes = () => {
+  //   let types: string[] = [];
+  //   if (dataLocation) {
+  //     for (let i = 0; i < dataLocation?.length; i++) {
+  //       if (!types.includes(dataLocation[i].dimension)) {
+  //         types.push(dataLocation[i].dimension);
+  //       }
+  //     }
+  //   }
+  //   return types;
+  // };
+
+  // console.log(getTypes());
+
+  const configLocationSearch: IInputSearchProps = {
+    onChange,
+    searchValue,
+    placeHolder: "ubicación",
+    colClassName: { xs: 12, className: "pt-3 mb-3 col-buscador-rickMorty" },
+  };
+
+  return {
+    dataLocation,
+    dataFiltered,
+    configLocationSearch,
+  };
 };

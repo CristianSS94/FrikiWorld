@@ -1,10 +1,13 @@
 import { FC, useContext } from "react";
-import { Row } from "react-bootstrap";
+import { Col, Row } from "react-bootstrap";
 
-import { SpinnerComponent } from "../../../../../components/SpinnerComponent/SpinnerComponent";
+import {
+  InputSearch,
+  SelectFilter,
+  SpinnerLoading,
+  ViewNoResults,
+} from "../../../../../components";
 import { FrikiWorldContext } from "../../../../../context/FrikiWorldContext";
-import { InputSearch } from "../components/InputSearch/InputSearch";
-import { SelectGeneral } from "../components/SelectGeneral/SelectGeneral";
 import { TableEpisode } from "./components/tableEpisode/TableEpisode";
 import { useEpidodeData } from "./hooks/useEpisodeData";
 
@@ -20,15 +23,19 @@ export const EpisodeView: FC = () => {
   return (
     <>
       {loadingView ? (
-        <SpinnerComponent {...configEpsisodeSpinner} />
+        <SpinnerLoading {...configEpsisodeSpinner} />
       ) : (
         <>
           <Row className="row-inputs-rickmorty">
             <InputSearch {...configEpisodeSearch} />
-            <SelectGeneral {...configEpisodeSelector} />
+            <SelectFilter {...configEpisodeSelector} />
           </Row>
-          <Row>
-            <TableEpisode dataFiltered={dataFiltered} />
+          <Row className="table-scroll-view">
+            {dataFiltered && dataFiltered?.length ? (
+              <TableEpisode dataFiltered={dataFiltered} />
+            ) : (
+              <ViewNoResults colClassName="vista-sin-resultados" />
+            )}
           </Row>
         </>
       )}

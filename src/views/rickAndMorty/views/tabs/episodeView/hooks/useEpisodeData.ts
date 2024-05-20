@@ -5,9 +5,9 @@ import { FrikiWorldContext } from "../../../../../../context/FrikiWorldContext";
 import { ERickMortyRoutes } from "../../../../enums/Rick-Morty-routes";
 import { IEpisode, IEpisodeDTO } from "../../../../models/IEpisodeDTO";
 import { optionEpisodeSelector } from "../../../../enums/Selector-Value-Episode";
-import { IInputSearchProps } from "../../components/InputSearch/InputSearch";
-import { ISelectProps } from "../../components/SelectGeneral/SelectGeneral";
-import { SpinnerComponentProps } from "../../../../../../components/SpinnerComponent/SpinnerComponent";
+import { IInputSearchProps } from "../../../../../../components/InputSearch/InputSearch";
+import { ISelectProps } from "../../../../../../components/SelectFilter/SelectFilter";
+import { spinnerLoadingProps } from "../../../../../../components/SpinnerLoading/spinnerLoading";
 
 export const useEpidodeData = () => {
   const [dataEpisode, setDataEpisode] = useState<IEpisode[]>();
@@ -85,7 +85,7 @@ export const useEpidodeData = () => {
     searchValue,
   };
 
-  const configEpsisodeSpinner: SpinnerComponentProps = {
+  const configEpsisodeSpinner: spinnerLoadingProps = {
     rowClassNameSpinner: "row-spinner-rickmorty",
   };
 

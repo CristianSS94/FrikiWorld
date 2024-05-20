@@ -1,10 +1,13 @@
 import { FC, useContext } from "react";
 import { Col, Row } from "react-bootstrap";
 
-import { SpinnerComponent } from "../../../../../components/SpinnerComponent/SpinnerComponent";
+import {
+  InputSearch,
+  SelectFilter,
+  SpinnerLoading,
+  ViewNoResults,
+} from "../../../../../components";
 import { FrikiWorldContext } from "../../../../../context/FrikiWorldContext";
-import { InputSearch } from "../components/InputSearch/InputSearch";
-import { SelectGeneral } from "../components/SelectGeneral/SelectGeneral";
 import { CardsCharacter } from "./components/cardsCharacter/CardsCharacter";
 import { useCharacterData } from "./hooks/useCharacterData/useCharacterData";
 
@@ -21,13 +24,13 @@ export const CharacterView: FC = () => {
   return (
     <>
       {loadingView ? (
-        <SpinnerComponent {...configCharacterSpinner} />
+        <SpinnerLoading {...configCharacterSpinner} />
       ) : (
         <>
           <Row className="row-inputs-rickmorty">
             <InputSearch {...configCharacterInputSearch} />
-            <SelectGeneral {...configCharacterGenderSelector} />
-            <SelectGeneral {...configCharacterStatusSelector} />
+            <SelectFilter {...configCharacterGenderSelector} />
+            <SelectFilter {...configCharacterStatusSelector} />
           </Row>
           <Row className="card-scroll-views">
             {dataFiltered && dataFiltered?.length ? (
@@ -35,9 +38,7 @@ export const CharacterView: FC = () => {
                 <CardsCharacter elem={elem} key={elem.id} />
               ))
             ) : (
-              <Col className="vista-sin-resultados">
-                <h6>No hay resultados</h6>
-              </Col>
+              <ViewNoResults colClassName="vista-sin-resultados" />
             )}
           </Row>
         </>

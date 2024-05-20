@@ -1,7 +1,7 @@
 import { ChangeEvent, FC } from "react";
 import { Col, ColProps, Form } from "react-bootstrap";
 
-export interface ISelectProps {
+export interface ISelectFilterProps {
   onChange: (e: ChangeEvent<HTMLSelectElement>) => void;
   optionSelector: { value: string; label?: string }[];
   colProps?: ColProps;
@@ -10,7 +10,7 @@ export interface ISelectProps {
   labelOption: string;
 }
 
-export const SelectGeneral: FC<ISelectProps> = ({
+export const SelectFilter: FC<ISelectFilterProps> = ({
   onChange,
   optionSelector,
   colProps,
