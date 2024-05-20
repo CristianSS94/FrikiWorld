@@ -1,13 +1,10 @@
 import axios from "axios";
 import { ChangeEvent, useContext, useEffect, useMemo, useState } from "react";
 
+import { IInputSearchProps } from "../../../../../../components";
 import { FrikiWorldContext } from "../../../../../../context/FrikiWorldContext";
 import { ERickMortyRoutes } from "../../../../enums/Rick-Morty-routes";
 import { ILocation, ILocationDTO } from "../../../../models/ILocationDTO";
-import {
-  IInputSearchProps,
-  IViewNoResultsProps,
-} from "../../../../../../components";
 
 export const useLocationData = () => {
   const [dataLocation, setDataLocation] = useState<ILocation[]>();

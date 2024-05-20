@@ -1,16 +1,19 @@
 import axios from "axios";
 import { ChangeEvent, useContext, useEffect, useMemo, useState } from "react";
+
+import {
+  ISelectFilterProps,
+  spinnerLoadingProps,
+} from "../../../../../../../components";
+import { IInputSearchProps } from "../../../../../../../components/InputSearch/InputSearch";
 import { FrikiWorldContext } from "../../../../../../../context/FrikiWorldContext";
-import { ERickMortyRoutes } from "../../../../../enums/Rick-Morty-routes";
-import { ICharacterDTO } from "../../../../../models";
-import { ICharacter } from "../../../../../models/ICharacterDTO";
-import { ISelectProps } from "../../../../../../../components/SelectFilter/SelectFilter";
 import {
   optionGenderSelector,
   optionStatusSelector,
 } from "../../../../../enums";
-import { IInputSearchProps } from "../../../../../../../components/InputSearch/InputSearch";
-import { spinnerLoadingProps } from "../../../../../../../components/SpinnerLoading/spinnerLoading";
+import { ERickMortyRoutes } from "../../../../../enums/Rick-Morty-routes";
+import { ICharacterDTO } from "../../../../../models";
+import { ICharacter } from "../../../../../models/ICharacterDTO";
 
 export const useCharacterData = () => {
   const [dataCharacter, setDataCharacter] = useState<ICharacter[]>();
@@ -76,7 +79,7 @@ export const useCharacterData = () => {
     return _dataFiltered;
   }, [searchValue, dataCharacter, filterGender, filterStatus]);
 
-  const configCharacterGenderSelector: ISelectProps = {
+  const configCharacterGenderSelector: ISelectFilterProps = {
     idSelector: "Gender",
     labelClassname: "select-filter-rickMorty",
     onChange: onGenderChange,
@@ -85,7 +88,7 @@ export const useCharacterData = () => {
     labelOption: "Género",
   };
 
-  const configCharacterStatusSelector: ISelectProps = {
+  const configCharacterStatusSelector: ISelectFilterProps = {
     idSelector: "Status",
     labelClassname: "select-filter-rickMorty",
     onChange: onStatusChange,

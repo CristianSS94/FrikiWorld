@@ -1,13 +1,15 @@
 import axios from "axios";
 import { ChangeEvent, useContext, useEffect, useMemo, useState } from "react";
 
+import { IInputSearchProps } from "../../../../../../components/InputSearch/InputSearch";
 import { FrikiWorldContext } from "../../../../../../context/FrikiWorldContext";
 import { ERickMortyRoutes } from "../../../../enums/Rick-Morty-routes";
-import { IEpisode, IEpisodeDTO } from "../../../../models/IEpisodeDTO";
 import { optionEpisodeSelector } from "../../../../enums/Selector-Value-Episode";
-import { IInputSearchProps } from "../../../../../../components/InputSearch/InputSearch";
-import { ISelectProps } from "../../../../../../components/SelectFilter/SelectFilter";
-import { spinnerLoadingProps } from "../../../../../../components/SpinnerLoading/spinnerLoading";
+import { IEpisode, IEpisodeDTO } from "../../../../models/IEpisodeDTO";
+import {
+  ISelectFilterProps,
+  spinnerLoadingProps,
+} from "../../../../../../components";
 
 export const useEpidodeData = () => {
   const [dataEpisode, setDataEpisode] = useState<IEpisode[]>();
@@ -65,7 +67,7 @@ export const useEpidodeData = () => {
 
   //Configuracion de los select y el input
 
-  const configEpisodeSelector: ISelectProps = {
+  const configEpisodeSelector: ISelectFilterProps = {
     idSelector: "Episode",
     labelClassname: "select-filter-rickMorty",
     onChange: onSeasonChange,

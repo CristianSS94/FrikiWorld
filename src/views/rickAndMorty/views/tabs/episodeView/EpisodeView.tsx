@@ -1,5 +1,5 @@
 import { FC, useContext } from "react";
-import { Col, Row } from "react-bootstrap";
+import { Row } from "react-bootstrap";
 
 import {
   InputSearch,
