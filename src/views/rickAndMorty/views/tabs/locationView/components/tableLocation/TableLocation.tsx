@@ -14,17 +14,18 @@ export const TableLocation: FC<TableLocationProps> = ({ dataFiltered }) => {
           <tr>
             <th>Nombre</th>
             <th>Tipo</th>
-            <th>Dimensión</th>
+            <th>Ubicación</th>
           </tr>
         </thead>
         <tbody>
-          {dataFiltered?.map((elem) => (
-            <tr key={elem.id}>
-              <td>{elem.name}</td>
-              <td>{elem.type}</td>
-              <td>{elem.dimension}</td>
-            </tr>
-          ))}
+          {dataFiltered &&
+            dataFiltered?.map((elem) => (
+              <tr key={elem.id}>
+                <td>{elem.name}</td>
+                <td>{elem.type}</td>
+                <td>{elem.dimension}</td>
+              </tr>
+            ))}
         </tbody>
       </Table>
     </Col>
