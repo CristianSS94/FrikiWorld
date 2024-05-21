@@ -1,6 +1,6 @@
 import { FC, ReactElement, useState } from "react";
+import { Button, Col, Container, Row } from "react-bootstrap";
 import { EpisodesSimpson } from "./views/episodes/EpisodesSimpson";
-import { Button, Col, Container, Nav, Row, Tab } from "react-bootstrap";
 
 import "./SimpsonStyles.scss";
 import { CharactersSimpson } from "./views/characters/CharactersSimpson";

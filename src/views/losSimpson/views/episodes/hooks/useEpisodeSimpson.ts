@@ -1,8 +1,8 @@
 import axios from "axios";
-import { ESimpsonRoutes } from "../../../enums/los-simpson-routes";
-import { ChangeEvent, useContext, useEffect, useMemo, useState } from "react";
-import { TEpisodeSimpsonDTO } from "../../../models/IEpisodeSimpson";
+import { useContext, useEffect, useState } from "react";
 import { FrikiWorldContext } from "../../../../../context/FrikiWorldContext";
+import { ESimpsonRoutes } from "../../../enums/los-simpson-routes";
+import { TEpisodeSimpsonDTO } from "../../../models/IEpisodeSimpson";
 
 export const useEpisodeSimpson = () => {
   const [simpsonEpisode, setSimpsonEpisode] = useState<TEpisodeSimpsonDTO>();
