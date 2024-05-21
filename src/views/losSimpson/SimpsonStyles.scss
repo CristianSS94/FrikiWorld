@@ -38,7 +38,6 @@
     box-shadow: 5px 5px 15px black;
 
     .episode-simpson-imagen {
-      // filter: sepia(2);
       filter: grayscale(1);
       object-fit: cover;
     }
@@ -46,10 +45,6 @@
 }
 
 .card-episode-textImage {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
   .title-episode-simpson {
     font-family: "The simpson", sans-serif;
     color: rgb(255, 222, 0) !important;

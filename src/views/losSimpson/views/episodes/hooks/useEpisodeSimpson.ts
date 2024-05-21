@@ -3,6 +3,7 @@ import { useContext, useEffect, useState } from "react";
 import { FrikiWorldContext } from "../../../../../context/FrikiWorldContext";
 import { ESimpsonRoutes } from "../../../enums/los-simpson-routes";
 import { TEpisodeSimpsonDTO } from "../../../models/IEpisodeSimpson";
+import { spinnerLoadingProps } from "../../../../../components";
 
 export const useEpisodeSimpson = () => {
   const [simpsonEpisode, setSimpsonEpisode] = useState<TEpisodeSimpsonDTO>();
@@ -33,5 +34,9 @@ export const useEpisodeSimpson = () => {
   //   }
   // }, []);
 
-  return { simpsonEpisode };
+  const configEpsisodeSpinner: spinnerLoadingProps = {
+    rowClassNameSpinner: "row-spinner-rickmorty",
+  };
+
+  return { simpsonEpisode, configEpsisodeSpinner };
 };
