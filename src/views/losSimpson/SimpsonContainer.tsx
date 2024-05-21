@@ -39,14 +39,14 @@ export const SimpsonContainer: FC = () => {
   return (
     <Container fluid className="contenedor-principal-TheSimpsonView">
       <Row>
-        <Col xs={12} sm={2} className="col-botonera-simpson">
+        <Col xs={12} lg={2} className="col-botonera-simpson">
           {(Object.keys(configTabSimpson) as TKeySimpsonTab[]).map((elem) => (
             <Button onClick={() => setShowTab(configTabSimpson[elem].eventKey)}>
               {configTabSimpson[elem].tabTitle}
             </Button>
           ))}
         </Col>
-        <Col xs={12} sm={10}>
+        <Col xs={12} lg={10}>
           {(Object.keys(configTabSimpson) as TKeySimpsonTab[]).map(
             (elem) =>
               showTab === configTabSimpson[elem].eventKey && (
