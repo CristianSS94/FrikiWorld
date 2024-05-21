@@ -21,7 +21,7 @@ export const EpisodesSimpson: FC = () => {
           {simpsonEpisode?.map((elem: IEpisodeSimpson) => {
             return (
               <Col
-                xs={12}
+                xs={6}
                 lg={3}
                 className="mb-2 col-principal-episodeSimpson"
                 key={elem.id}
