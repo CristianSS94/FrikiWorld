@@ -4,7 +4,6 @@ import { Card, Col, Row } from "react-bootstrap";
 import { SpinnerLoading } from "../../../../components";
 import { FrikiWorldContext } from "../../../../context/FrikiWorldContext";
 import { IEpisodeSimpson } from "../../models/IEpisodeSimpson";
-import "./EpisodesSimpson.scss";
 import { useEpisodeSimpson } from "./hooks/useEpisodeSimpson";
 
 export const EpisodesSimpson: FC = () => {
@@ -18,22 +17,32 @@ export const EpisodesSimpson: FC = () => {
           <SpinnerLoading />
         </Row>
       ) : (
-        <Row>
+        <Row className="row-contenedor-episodios">
           {simpsonEpisode?.map((elem: IEpisodeSimpson) => {
             return (
-              <Col xs={6} lg={3} className="mb-2" key={elem.id}>
-                <Card className="w-100 h-100">
+              <Col
+                xs={12}
+                lg={3}
+                className="mb-2 col-principal-episodeSimpson"
+                key={elem.id}
+              >
+                <Card className="w-100 h-100 episode-simpson-card">
                   <Card.Img
+                    className="episode-simpson-imagen"
                     variant="top"
                     src={elem.thumbnailUrl}
                     onError={(e: any) =>
-                      (e.target.src = "/images/no-image.jpg")
+                      (e.target.src = "/images/error-simpson.jpg")
                     }
                   />
-                  <Card.Body>
+                  <Card.ImgOverlay className="card-episode-textImage">
+                    <Card.Title className="title-episode-simpson">
+                      {elem.name}
+                    </Card.Title>
+                  </Card.ImgOverlay>
+                  {/* <Card.Body>
                     <Card.Title>{elem.name}</Card.Title>
-                    <Card.Text>{elem.description}</Card.Text>
-                  </Card.Body>
+                  </Card.Body> */}
                 </Card>
               </Col>
             );
