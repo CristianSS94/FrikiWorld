@@ -35,7 +35,6 @@ export const useCharacterSimpson = () => {
     setLoadingView(true);
     Promise.all(arrayPromesasData)
       .then((res) => {
-        console.log(res);
         const charactersData = res.map((response) => response.data[0]);
         setSimpsonCharacter(charactersData);
       })

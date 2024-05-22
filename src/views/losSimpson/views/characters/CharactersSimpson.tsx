@@ -13,7 +13,6 @@ export const CharactersSimpson: FC = () => {
     searchInputCharacter,
   } = useCharacterSimpson();
   const { loadingView } = useContext(FrikiWorldContext);
-  console.log(simpsonCharacter);
 
   return (
     <>
