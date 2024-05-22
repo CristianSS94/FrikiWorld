@@ -5,7 +5,7 @@ import { EpisodesSimpson } from "./views/episodes/EpisodesSimpson";
 import "./SimpsonStyles.scss";
 import { CharactersSimpson } from "./views/characters/CharactersSimpson";
 
-type TKeySimpsonTab = "0" | "1" | "2";
+type TKeySimpsonTab = "0" | "1";
 
 interface ITabSimpson {
   tabTitle: string;
@@ -28,11 +28,6 @@ export const SimpsonContainer: FC = () => {
       tabTitle: "Episodios",
       tabComponent: <EpisodesSimpson />,
       eventKey: "1",
-    },
-    "2": {
-      tabTitle: "Productos",
-      tabComponent: <CharactersSimpson />,
-      eventKey: "2",
     },
   };
 

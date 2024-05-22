@@ -18,11 +18,12 @@ export const CardEpisodeSimpson: FC<CardEpisodeSimpsonProps> = ({
         return (
           <Col
             xs={6}
+            sm={4}
             lg={3}
             className="mb-2 col-principal-episodeSimpson"
             key={elem.id}
           >
-            <Card className="w-100 h-100 episode-simpson-card">
+            <Card className="w-100 h-100 episode-simpson-card ">
               <Card.Img
                 className="episode-simpson-imagen"
                 variant="top"

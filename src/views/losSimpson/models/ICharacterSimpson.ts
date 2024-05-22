@@ -1,8 +1,8 @@
 export interface ICharaterSimpson {
-  id: number;
-  name: string;
-  normalized_name: string;
-  gender: string;
+  quote: string;
+  character: string;
+  image: string;
+  characterDirection: string;
 }
 
-export type ICharaterSimpsonDTO = ICharaterSimpson[];
+export interface ICharacterSimpsonDTO {}

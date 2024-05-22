@@ -10,7 +10,7 @@
 
     @media (max-width: 992px) {
       display: flex;
-      justify-content: space-between;
+      justify-content: space-around;
     }
 
     button {
@@ -33,30 +33,7 @@
   height: calc(100vh - 7rem);
 }
 
-.col-principal-episodeSimpson {
-  .episode-simpson-card {
-    border: 5px solid rgb(255, 222, 0, 01);
-    box-shadow: 5px 5px 15px black;
-
-    .episode-simpson-imagen {
-      filter: grayscale(1);
-      object-fit: cover;
-    }
-  }
-}
-
-.card-episode-textImage {
-  .title-episode-simpson {
-    font-family: "The simpson", sans-serif;
-    color: rgb(255, 222, 0) !important;
-    -webkit-text-stroke: 0.1rem black;
-    font-size: clamp(1rem, 2vw, 2rem);
-    text-align: center;
-  }
-}
-
 .row-contenedor-episodios {
-  padding-top: 0.5rem;
   height: $heightMain;
   overflow-y: auto;
 
@@ -74,5 +51,88 @@
   &::-webkit-scrollbar-thumb {
     border-radius: 5px;
     background-color: #2b3035;
+  }
+
+  .col-principal-episodeSimpson {
+    position: relative;
+    &:hover {
+      transform: scale(1.01);
+    }
+
+    .episode-simpson-card {
+      border: 5px solid rgb(255, 222, 0, 01);
+      box-shadow: 5px 5px 15px black;
+
+      .episode-simpson-imagen {
+        filter: grayscale(1);
+        object-fit: cover;
+      }
+
+      .title-episode-simpson {
+        font-family: "The simpson", sans-serif;
+        color: rgb(255, 222, 0) !important;
+        -webkit-text-stroke: 0.1rem black;
+        font-size: clamp(1rem, 2vw, 2rem);
+        text-align: center;
+      }
+    }
+  }
+}
+
+.card-personajes-simpson {
+  background-color: transparent;
+  border: none;
+}
+
+.imagen-personajes-simpson {
+  object-fit: contain;
+  height: 200px;
+  filter: drop-shadow(5px 5px 1px rgba(0, 0, 0, 1));
+}
+
+.row-contenedor-personajes {
+  height: $heightMain;
+  overflow-y: auto;
+
+  @media (max-width: 992px) {
+    height: calc($heightMain - 3.75rem);
+  }
+
+  &::-webkit-scrollbar {
+    width: 1rem;
+    height: 1rem;
+    background-color: rgb(255, 222, 0);
+    border-radius: 5px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background-color: #2b3035;
+  }
+}
+
+.title-episode-simpson {
+  color: rgb(255, 222, 0) !important;
+  -webkit-text-stroke: 0.05rem black;
+  font-size: clamp(1rem, 2vw, 2rem);
+  text-align: center;
+  text-shadow: 2px 2px 1px black;
+}
+
+.buscador-personajes-simpson {
+  .form-control {
+    color: black;
+    border-color: rgb(255, 222, 0) !important;
+    height: 2.5rem;
+
+    &:focus {
+      border-color: rgb(255, 222, 0) !important;
+      color: black;
+      box-shadow: 0 0 0 0.1rem rgb(255, 222, 0);
+    }
+
+    &::placeholder {
+      color: black;
+    }
   }
 }
