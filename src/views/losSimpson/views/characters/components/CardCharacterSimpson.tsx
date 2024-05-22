@@ -19,7 +19,7 @@ export const CardCharacterSimpson: FC<CardCharacterSimpsonProps> = ({
   return (
     <Row className="row-contenedor-personajes">
       <Col xs={12} className="title-episode-simpson">
-        Algunos protagonistas
+        <h1>Algunos protagonistas</h1>
       </Col>
       {simpsonCharacter?.map((elem, index) => (
         <Col xs={12} lg={3}>
@@ -44,8 +44,8 @@ export const CardCharacterSimpson: FC<CardCharacterSimpsonProps> = ({
         Busca a otros personajes
       </Col>
       <InputSearch {...configInput} />
-      <Col XS={2}>
-        <Button variant="warning" onClick={searchInputCharacter}>Buscar</Button>
+      <Col xs={4} lg={2} className="boton-buscador-simpson">
+        <Button onClick={searchInputCharacter}>Buscar</Button>
       </Col>
       <Col xs={12}>
         {searchSimpson && (

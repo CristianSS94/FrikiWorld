@@ -51,7 +51,7 @@ export const useCharacterSimpson = () => {
     setSearchValue(e.target.value);
 
   const configInput: IInputSearchProps = {
-    colClassName: { xs: 6, lg: 10, className: "buscador-personajes-simpson" },
+    colClassName: { xs: 8, lg: 10, className: "buscador-personajes-simpson" },
     onChange,
     placeHolder: "personaje, ejemplo: milhouse",
     searchValue,
