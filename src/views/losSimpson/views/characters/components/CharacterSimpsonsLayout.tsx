@@ -34,7 +34,7 @@ export const CharacterSimpsonLayout: FC<CharacterSimpsonProps> = ({
         <SimpsonCards key={index} elem={elem} {...configClassCards} />
       ))}
       <Col className="title-episode-simpson" xs={12}>
-        Busca a otros personajes
+        <h2>Busca a otros personajes</h2>
       </Col>
       <InputSearch {...configInput} />
       <Col xs={4} lg={2} className="boton-buscador-simpson">

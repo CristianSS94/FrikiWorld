@@ -54,10 +54,9 @@
   }
 
   .col-principal-episodeSimpson {
-    position: relative;
-    &:hover {
-      transform: scale(1.01);
-    }
+    // &:hover {
+    //   transform: scale(1.01);
+    // }
 
     .episode-simpson-card {
       border: 5px solid rgb(255, 222, 0, 01);
@@ -115,11 +114,11 @@
 }
 
 .title-episode-simpson {
-  color: rgb(255, 222, 0) !important;
-  -webkit-text-stroke: 0.05rem black;
+  color: #2b3035 !important;
+  -webkit-text-stroke: 0.01rem rgb(255, 222, 0);
   font-size: clamp(1rem, 2vw, 2rem);
   text-align: center;
-  text-shadow: 1px 1px 1px black;
+  // text-shadow: 1px 1px 1px black;
 }
 
 .buscador-personajes-simpson {
