@@ -48,9 +48,7 @@ export const SimpsonContainer: FC = () => {
           {(Object.keys(configTabSimpson) as TKeySimpsonTab[]).map(
             (elem) =>
               showTab === configTabSimpson[elem].eventKey && (
-                <section key={configTabSimpson[elem].eventKey}>
-                  {configTabSimpson[elem].tabComponent}
-                </section>
+                <>{configTabSimpson[elem].tabComponent}</>
               )
           )}
         </Col>
