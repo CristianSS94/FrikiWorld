@@ -13,12 +13,12 @@ export const CardBackSimpson: FC<ICardBackSimpsonProps> = ({
 }) => {
   return (
     <Card.Body onClick={handleQuote} className="card-back-simpson">
-      <Card.Text className="text-episode-simpson">
+      <Card.Text className="text-character-simpson">
         {`" `}
         {elem.quote}
         {` "`}
       </Card.Text>
-      <Card.Text className="text-episode-simpson">
+      <Card.Text className="text-character-simpson">
         {"-"}
         {elem.character}
       </Card.Text>{" "}

@@ -18,11 +18,11 @@ export const CharacterSimpsonLayout: FC<CharacterSimpsonProps> = ({
   searchInputCharacter,
 }) => {
   const configClassCards: ColProps = {
-    colClass: { xs: 12, lg: 3 },
+    colClass: { xs: 6, lg: 3 },
   };
 
   const configClassSearch: ColProps = {
-    colClass: { xs: 12 },
+    colClass: { xs: 12, lg: { span: 4, offset: 4 } },
   };
 
   return (

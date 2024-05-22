@@ -21,7 +21,7 @@ export const InputSearch: FC<IInputSearchProps> = ({
         aria-describedby="passwordHelpBlock"
         onChange={onChange}
         value={searchValue}
-        placeholder={`Buscar ${placeHolder}`}
+        placeholder={placeHolder}
       />
     </Col>
   );

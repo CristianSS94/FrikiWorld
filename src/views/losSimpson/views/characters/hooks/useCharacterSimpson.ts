@@ -19,7 +19,7 @@ export const useCharacterSimpson = () => {
   const [simpsonCharacter, setSimpsonCharacter] =
     useState<ICharaterSimpson[]>();
   const [searchSimpson, setSearchSimpson] = useState<ICharaterSimpson>();
-  const [searchValue, setSearchValue] = useState<string>("");
+  const [searchValue, setSearchValue] = useState<string>("milhouse");
 
   const { setLoadingView } = useContext(FrikiWorldContext);
 
@@ -31,6 +31,7 @@ export const useCharacterSimpson = () => {
     return arrayPromesas;
   }, []);
 
+  //llamada para traer a los protas
   const getAllCharacterSimpson = useCallback(() => {
     setLoadingView(true);
     Promise.all(arrayPromesasData)
@@ -41,7 +42,10 @@ export const useCharacterSimpson = () => {
       .finally(() => setLoadingView(false));
   }, [arrayPromesasData]);
 
-  useEffect(() => getAllCharacterSimpson(), [getAllCharacterSimpson]);
+  useEffect(() => {
+    searchInputCharacter();
+    getAllCharacterSimpson();
+  }, [getAllCharacterSimpson]);
 
   const configCharacterSpinner: spinnerLoadingProps = {
     rowClassNameSpinner: "row-spinner-rickmorty",
@@ -50,14 +54,17 @@ export const useCharacterSimpson = () => {
     setSearchValue(e.target.value);
 
   const configInput: IInputSearchProps = {
-    colClassName: { xs: 8, lg: 10, className: "buscador-personajes-simpson" },
+    colClassName: {
+      xs: 8,
+      lg: { span: 2, offset: 4 },
+      className: "buscador-personajes-simpson",
+    },
     onChange,
-    placeHolder: "personaje, ejemplo: milhouse",
+    placeHolder: "Ejemplo: Milhouse",
     searchValue,
   };
 
-  //Funcion del buscador
-
+  //Funcion del buscador activada por el boton
   const searchInputCharacter = useCallback(() => {
     if (searchValue) {
       axios

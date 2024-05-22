@@ -20,7 +20,7 @@ export const CardFrontSimpson: FC<ICardFrontSimpsonProps> = ({
         src={elem.image}
       />
       <Card.Body className="text-center" onClick={handleQuote}>
-        <Card.Title className="title-episode-simpson">
+        <Card.Title className="title-character-simpson">
           {elem.character}
         </Card.Title>
       </Card.Body>

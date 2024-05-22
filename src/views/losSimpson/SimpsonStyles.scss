@@ -25,6 +25,12 @@
       @media (max-width: 992px) {
         width: 30%;
       }
+
+      &:hover,
+      &:active {
+        background-color: #2b3035 !important;
+        color: rgb(255, 222, 0, 1) !important;
+      }
     }
   }
 }
@@ -78,17 +84,41 @@
   }
 }
 
+.title-episode-simpson {
+  color: #2b3035 !important;
+  -webkit-text-stroke: 0.01rem rgb(255, 222, 0);
+  font-size: clamp(1rem, 2vw, 2rem);
+  text-align: center;
+}
+
+.title-character-simpson {
+  color: #2b3035 !important;
+  -webkit-text-stroke: 0.01rem rgb(255, 222, 0);
+  font-size: clamp(1rem, 2vw, 2rem);
+  text-align: center;
+  font-family: "The simpson", sans-serif;
+}
+
+.text-character-simpson {
+  font-weight: bold;
+}
+
 .card-personajes-simpson {
   cursor: pointer;
   padding: 0.5rem;
   background-color: transparent;
   border: none;
+  margin-bottom: 0.5rem;
+
+  &:hover {
+    box-shadow: 0px 0px 10px 1px #2b3035;
+  }
 }
 
 .imagen-personajes-simpson {
   cursor: pointer;
   object-fit: contain;
-  height: 200px;
+  height: 14vh;
   filter: drop-shadow(5px 5px 1px rgba(0, 0, 0, 1));
 }
 
@@ -113,14 +143,6 @@
   }
 }
 
-.title-episode-simpson {
-  color: #2b3035 !important;
-  -webkit-text-stroke: 0.01rem rgb(255, 222, 0);
-  font-size: clamp(1rem, 2vw, 2rem);
-  text-align: center;
-  // text-shadow: 1px 1px 1px black;
-}
-
 .buscador-personajes-simpson {
   padding-top: 0.5rem;
 
@@ -137,6 +159,7 @@
 
     &::placeholder {
       color: black;
+      font-family: "The simpson", sans-serif;
     }
   }
 }
@@ -153,6 +176,11 @@
     color: #2b3035;
     font-weight: bold;
     box-shadow: 0px 0px 5px #2b3035;
+    &:hover,
+    &:active {
+      background-color: #2b3035 !important;
+      color: rgb(255, 222, 0, 1) !important;
+    }
   }
 }
 
