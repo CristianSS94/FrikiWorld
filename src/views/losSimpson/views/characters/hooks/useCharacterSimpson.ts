@@ -56,7 +56,7 @@ export const useCharacterSimpson = () => {
   const configInput: IInputSearchProps = {
     colClassName: {
       xs: 8,
-      lg: { span: 2, offset: 4 },
+      lg: { span: 4, offset: 3 },
       className: "buscador-personajes-simpson",
     },
     onChange,
