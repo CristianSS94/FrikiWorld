@@ -80,12 +80,14 @@
 }
 
 .card-personajes-simpson {
+  cursor: pointer;
   padding: 0.5rem;
   background-color: transparent;
   border: none;
 }
 
 .imagen-personajes-simpson {
+  cursor: pointer;
   object-fit: contain;
   height: 200px;
   filter: drop-shadow(5px 5px 1px rgba(0, 0, 0, 1));
@@ -153,4 +155,10 @@
     font-weight: bold;
     box-shadow: 0px 0px 5px #2b3035;
   }
+}
+
+.card-back-simpson {
+  height: 100%;
+  cursor: pointer;
+  text-align: center;
 }

@@ -2,7 +2,7 @@ import { FC, useContext } from "react";
 import { useCharacterSimpson } from "./hooks/useCharacterSimpson";
 import { FrikiWorldContext } from "../../../../context/FrikiWorldContext";
 import { SpinnerLoading } from "../../../../components";
-import { CardCharacterSimpson } from "./components/CardCharacterSimpson";
+import { CharacterSimpsonLayout } from "./components/CharacterSimpsonsLayout";
 
 export const CharactersSimpson: FC = () => {
   const {
@@ -20,7 +20,7 @@ export const CharactersSimpson: FC = () => {
       {loadingView ? (
         <SpinnerLoading {...configCharacterSpinner} />
       ) : (
-        <CardCharacterSimpson
+        <CharacterSimpsonLayout
           simpsonCharacter={simpsonCharacter}
           configInput={configInput}
           searchSimpson={searchSimpson}
