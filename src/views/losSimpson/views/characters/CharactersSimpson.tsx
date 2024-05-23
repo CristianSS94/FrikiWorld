@@ -1,30 +1,27 @@
 import { FC, useContext } from "react";
-import { useCharacterSimpson } from "./hooks/useCharacterSimpson";
-import { FrikiWorldContext } from "../../../../context/FrikiWorldContext";
+import { ColProps, Row } from "react-bootstrap";
 import { SpinnerLoading } from "../../../../components";
-import { CharacterSimpsonLayout } from "./components/CharacterSimpsonsLayout";
+import { FrikiWorldContext } from "../../../../context/FrikiWorldContext";
+import { SimpsonCards } from "./components/cardCharacterSimpson/SimpsonCards";
+import { useCharacterSimpson } from "./hooks/useCharacterSimpson";
 
 export const CharactersSimpson: FC = () => {
-  const {
-    simpsonCharacter,
-    configCharacterSpinner,
-    configInput,
-    searchSimpson,
-    searchInputCharacter,
-  } = useCharacterSimpson();
+  const { configCharacterSpinner, characterSimpson } = useCharacterSimpson();
   const { loadingView } = useContext(FrikiWorldContext);
+  // const configClassCards: ColProps = {
+  //   colClass: { xs: 6, lg: 3 },
+  // };
 
   return (
     <>
       {loadingView ? (
         <SpinnerLoading {...configCharacterSpinner} />
       ) : (
-        <CharacterSimpsonLayout
-          simpsonCharacter={simpsonCharacter}
-          configInput={configInput}
-          searchSimpson={searchSimpson}
-          searchInputCharacter={searchInputCharacter}
-        />
+        <Row className="row-contenedor-personajes">
+          {characterSimpson?.map((elem, index) => (
+            <SimpsonCards key={index} elem={elem} /*{...configClassCards}*/ />
+          ))}
+        </Row>
       )}
     </>
   );

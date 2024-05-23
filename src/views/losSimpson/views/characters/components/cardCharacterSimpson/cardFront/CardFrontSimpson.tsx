@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { Card } from "react-bootstrap";
+import { Button, Card } from "react-bootstrap";
 import { ICharaterSimpson } from "../../../../../models/ICharacterSimpson";
 
 interface ICardFrontSimpsonProps {
@@ -23,6 +23,9 @@ export const CardFrontSimpson: FC<ICardFrontSimpsonProps> = ({
         <Card.Title className="title-character-simpson">
           {elem.character}
         </Card.Title>
+        {/* <Button className="boton-vista-simpson">
+          <i className="pi pi-eye"> Ver Cita</i>
+        </Button> */}
       </Card.Body>
     </>
   );

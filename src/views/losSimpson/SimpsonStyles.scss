@@ -12,26 +12,6 @@
       display: flex;
       justify-content: space-around;
     }
-
-    button {
-      width: 100%;
-      margin-bottom: 0.5rem;
-      background-color: rgb(255, 222, 0, 1);
-      border: none;
-      color: #2b3035;
-      font-weight: bold;
-      box-shadow: 0px 0px 5px #2b3035;
-
-      @media (max-width: 992px) {
-        width: 30%;
-      }
-
-      &:hover,
-      &:active {
-        background-color: #2b3035 !important;
-        color: rgb(255, 222, 0, 1) !important;
-      }
-    }
   }
 }
 
@@ -60,10 +40,6 @@
   }
 
   .col-principal-episodeSimpson {
-    // &:hover {
-    //   transform: scale(1.01);
-    // }
-
     .episode-simpson-card {
       border: 5px solid rgb(255, 222, 0, 01);
       box-shadow: 5px 5px 15px black;
@@ -105,10 +81,11 @@
 
 .card-personajes-simpson {
   cursor: pointer;
-  padding: 0.5rem;
   background-color: transparent;
   border: none;
   margin-bottom: 0.5rem;
+  padding-top: 0.5rem;
+  height: 100%;
 
   &:hover {
     box-shadow: 0px 0px 10px 1px #2b3035;
@@ -118,13 +95,15 @@
 .imagen-personajes-simpson {
   cursor: pointer;
   object-fit: contain;
-  height: 14vh;
+  height: 30vh;
   filter: drop-shadow(5px 5px 1px rgba(0, 0, 0, 1));
 }
 
 .row-contenedor-personajes {
   max-height: $heightMain;
   overflow-y: auto;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
 
   @media (max-width: 992px) {
     height: calc($heightMain - 3.75rem);
@@ -143,49 +122,28 @@
   }
 }
 
-.buscador-personajes-simpson {
-  padding-top: 0.5rem;
-
-  .form-control {
-    color: black;
-    border-color: rgb(255, 222, 0) !important;
-    height: 2.5rem;
-
-    &:focus {
-      border-color: rgb(255, 222, 0) !important;
-      color: black;
-      box-shadow: 0 0 0 0.1rem rgb(255, 222, 0);
-    }
-
-    &::placeholder {
-      color: black;
-      font-family: "The simpson", sans-serif;
-    }
-  }
-}
-
-.boton-buscador-simpson {
-  padding-top: 0.5rem;
-  padding-bottom: 1rem;
-
-  button {
-    width: 100%;
-    margin-bottom: 0.5rem;
-    background-color: rgb(255, 222, 0, 1);
-    border: none;
-    color: #2b3035;
-    font-weight: bold;
-    box-shadow: 0px 0px 5px #2b3035;
-    &:hover,
-    &:active {
-      background-color: #2b3035 !important;
-      color: rgb(255, 222, 0, 1) !important;
-    }
-  }
-}
-
 .card-back-simpson {
   height: 100%;
   cursor: pointer;
   text-align: center;
+}
+
+.boton-vista-simpson {
+  width: 100%;
+  margin-bottom: 0.5rem;
+  background-color: rgb(255, 222, 0, 1);
+  border: none;
+  color: #2b3035;
+  font-weight: bold;
+  box-shadow: 0px 0px 5px #2b3035;
+
+  @media (max-width: 992px) {
+    width: 30%;
+  }
+
+  &:hover,
+  &:active {
+    background-color: #2b3035 !important;
+    color: rgb(255, 222, 0, 1) !important;
+  }
 }

@@ -37,6 +37,7 @@ export const SimpsonContainer: FC = () => {
         <Col xs={12} lg={2} className="col-botonera-simpson">
           {(Object.keys(configTabSimpson) as TKeySimpsonTab[]).map((elem) => (
             <Button
+              className="boton-vista-simpson"
               key={configTabSimpson[elem].eventKey}
               onClick={() => setShowTab(configTabSimpson[elem].eventKey)}
             >
@@ -48,7 +49,9 @@ export const SimpsonContainer: FC = () => {
           {(Object.keys(configTabSimpson) as TKeySimpsonTab[]).map(
             (elem) =>
               showTab === configTabSimpson[elem].eventKey && (
-                <>{configTabSimpson[elem].tabComponent}</>
+                <section key={configTabSimpson[elem].eventKey}>
+                  {configTabSimpson[elem].tabComponent}
+                </section>
               )
           )}
         </Col>
