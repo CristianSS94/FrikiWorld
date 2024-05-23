@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { Button, Card } from "react-bootstrap";
+import { Card } from "react-bootstrap";
 import { ICharaterSimpson } from "../../../../../models/ICharacterSimpson";
 
 interface ICardFrontSimpsonProps {
