@@ -1,19 +1,22 @@
 import { FC, ReactElement, useState } from "react";
-import { Button, Col, Container, Row } from "react-bootstrap";
+import { Col, Container, Row } from "react-bootstrap";
 import { EpisodesSimpson } from "./views/episodes/EpisodesSimpson";
 
 import "./SimpsonStyles.scss";
+import { BotoneraSimpson } from "./components/botoneraSimpson/BotoneraSimpson";
 import { CharactersSimpson } from "./views/characters/CharactersSimpson";
 
-type TKeySimpsonTab = "0" | "1";
+export type TKeySimpsonTab = "0" | "1";
+export type TButtonActive = "Personajes" | "Episodios";
 
 interface ITabSimpson {
-  tabTitle: string;
+  tabTitle: TButtonActive;
   tabComponent: ReactElement;
   eventKey: TKeySimpsonTab;
 }
 
-interface IConfigTabSimpson extends Record<TKeySimpsonTab, ITabSimpson> {}
+export interface IConfigTabSimpson
+  extends Record<TKeySimpsonTab, ITabSimpson> {}
 
 export const SimpsonContainer: FC = () => {
   const [showTab, setShowTab] = useState("0");
@@ -31,20 +34,17 @@ export const SimpsonContainer: FC = () => {
     },
   };
 
+  const handleShowTab = (e: string) => {
+    setShowTab(e);
+  };
+
   return (
     <Container fluid className="contenedor-principal-TheSimpsonView">
       <Row>
-        <Col xs={12} lg={2} className="col-botonera-simpson">
-          {(Object.keys(configTabSimpson) as TKeySimpsonTab[]).map((elem) => (
-            <Button
-              className="boton-vista-simpson"
-              key={configTabSimpson[elem].eventKey}
-              onClick={() => setShowTab(configTabSimpson[elem].eventKey)}
-            >
-              {configTabSimpson[elem].tabTitle}
-            </Button>
-          ))}
-        </Col>
+        <BotoneraSimpson
+          configTabSimpson={configTabSimpson}
+          handleShowTab={handleShowTab}
+        />
         <Col xs={12} lg={10}>
           {(Object.keys(configTabSimpson) as TKeySimpsonTab[]).map(
             (elem) =>

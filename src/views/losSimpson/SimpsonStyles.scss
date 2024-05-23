@@ -12,6 +12,31 @@
       display: flex;
       justify-content: space-around;
     }
+
+    .boton-vista-simpson {
+      width: 100%;
+      margin-bottom: 0.5rem;
+      background-color: rgb(255, 222, 0, 1);
+      border: none;
+      color: #2b3035;
+      font-weight: bold;
+      box-shadow: 0px 0px 5px #2b3035;
+
+      @media (max-width: 992px) {
+        width: 30%;
+      }
+
+      &:hover,
+      &:active {
+        background-color: #2b3035 !important;
+        color: rgb(255, 222, 0, 1) !important;
+      }
+    }
+
+    .boton-activado-simpson {
+      background-color: #2b3035 !important;
+      color: rgb(255, 222, 0, 1) !important;
+    }
   }
 }
 
@@ -126,24 +151,4 @@
   height: 100%;
   cursor: pointer;
   text-align: center;
-}
-
-.boton-vista-simpson {
-  width: 100%;
-  margin-bottom: 0.5rem;
-  background-color: rgb(255, 222, 0, 1);
-  border: none;
-  color: #2b3035;
-  font-weight: bold;
-  box-shadow: 0px 0px 5px #2b3035;
-
-  @media (max-width: 992px) {
-    width: 30%;
-  }
-
-  &:hover,
-  &:active {
-    background-color: #2b3035 !important;
-    color: rgb(255, 222, 0, 1) !important;
-  }
 }
